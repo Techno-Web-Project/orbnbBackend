@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>hfgdhgfhdfhgj</artifactId>
+    <artifactId>orbnbBackend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>hfgdhgfhdfhgj</name>
-    <description>hfgdhgfhdfhgj</description>
+    <name>orbnbBackend</name>
+    <description>orbnbBackend</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
