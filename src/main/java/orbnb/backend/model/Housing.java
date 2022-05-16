@@ -4,6 +4,7 @@ import lombok.*;
 import orbnb.backend.model.enumeration.HousingType;
 
 import javax.persistence.*;
+import java.util.Set;
 
 
 @Entity
@@ -44,5 +45,8 @@ public class Housing {
     @ManyToOne
     @JoinColumn(name = "id_person")
     private Person person;
+
+    @ManyToMany
+    Set<Housing> housingLinkedServices;
 
 }
