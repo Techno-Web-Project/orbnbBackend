@@ -47,6 +47,6 @@ public class Housing {
     private Person person;
 
     @ManyToMany
-    Set<Housing> housingLinkedServices;
+    Set<Service> housingLinkedServices;
 
 }
