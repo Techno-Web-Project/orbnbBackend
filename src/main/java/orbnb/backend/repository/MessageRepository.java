@@ -16,7 +16,7 @@ public interface MessageRepository extends CrudRepository<Message,Long> {
     Message save(Message message);
 
     @Override
-    void delete(Message entity);
+    void delete(Message message);
 
     @Query("select m from Message m where m.id_message=:id")
     Message findMessageById(@Param("id") Long id_message);
