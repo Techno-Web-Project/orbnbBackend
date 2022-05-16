@@ -6,12 +6,11 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.Date;
 
-
 @Entity
 @Table(name="person_rate")
 @Data
 @NoArgsConstructor
-public class Person_rate {
+public class PersonRate {
     @Id
     @GeneratedValue( strategy = GenerationType.AUTO )
     @Column(name="id_person_rate")
