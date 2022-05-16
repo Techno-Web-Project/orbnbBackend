@@ -1,4 +1,5 @@
-package orbnb.backend.service.Housing;
+package orbnb.backend.service.Message;
+
 
 import orbnb.backend.model.Message;
 import orbnb.backend.repository.MessageRepository;

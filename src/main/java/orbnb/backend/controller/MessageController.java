@@ -2,7 +2,7 @@ package orbnb.backend.controller;
 
 
 import orbnb.backend.model.Message;
-import orbnb.backend.service.Housing.MessageService;
+import orbnb.backend.service.Message.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
