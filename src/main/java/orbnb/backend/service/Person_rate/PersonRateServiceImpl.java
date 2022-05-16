@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PersonRateServiceImpl {
+public class PersonRateServiceImpl implements PersonRateService {
 
     @Autowired
     PersonRateRepository personRateRepository;
@@ -22,7 +22,7 @@ public class PersonRateServiceImpl {
         return personRate;
     }
 
-    public void deleteHousing(Long id){
+    public void deletePersonRate(Long id){
         personRateRepository.deleteById(id);
     }
 

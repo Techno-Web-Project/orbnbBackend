@@ -7,13 +7,13 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name="person_rate")
+@Table(name="personRate")
 @Data
 @NoArgsConstructor
 public class PersonRate {
     @Id
     @GeneratedValue( strategy = GenerationType.AUTO )
-    @Column(name="id_person_rate")
+    @Column(name="id_personRate")
     private Long id_person_rate;
     @Column(name="rate")
     private Integer rate;
