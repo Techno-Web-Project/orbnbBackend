@@ -1,7 +1,8 @@
-package orbnb.backend.service.Housing;
+package orbnb.backend.service.Message;
 
 import orbnb.backend.model.Message;
 import orbnb.backend.repository.MessageRepository;
+import orbnb.backend.service.Message.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
