@@ -2,6 +2,7 @@ package orbnb.backend.controller;
 
 import orbnb.backend.model.Person;
 import orbnb.backend.repository.PersonRepository;
+import orbnb.backend.service.Person.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,46 +14,40 @@ import java.util.Optional;
 public class PersonController {
 
     @Autowired
-    private PersonRepository personRepository;
+    private PersonService personService;
 
+
+    // http://localhost:8081/SpringMVC/personApi/persons
     @GetMapping("persons")
     public List<Person> getPersons(){
-        return this.personRepository.findAll();
+        return this.personService.retrieveAllPersons();
     }
 
-    @GetMapping("getPerson/{id}")
-    public Optional<Person> getPersonById(@PathVariable long id){
-        return this.personRepository.findById(id);
+    // http://localhost:8081/SpringMVC/personApi/getPersonById/{id}
+    @GetMapping("getPersonById/{id}")
+    public Person getPersonById(@PathVariable long id){
+        return this.personService.retrievePersonById(id);
     }
 
+
+    // http://localhost:8081/SpringMVC/personApi/getPersonByLogin/{login}
+    @GetMapping("getPersonByLogin/{login}")
+    public Person getPersonByLogin(@PathVariable String login){
+        return this.personService.retrievePersonByLogin(login);
+    }
+
+
+    // http://localhost:8081/SpringMVC/personApi/newPerson
     @PostMapping("newPerson")
     Person addPerson(@RequestBody Person newPerson) {
-        return personRepository.save(newPerson);
+        return personService.addPerson(newPerson);
     }
 
-    @PutMapping("replacePerson/{id}")
-    Person replacePerson(@RequestBody Person newPerson, @PathVariable Long id) {
 
-        return personRepository.findById(id)
-                .map(person -> {
-                    person.setFirstName(newPerson.getFirstName());
-                    person.setLastName(newPerson.getLastName());
-                    person.setPhoneNumber(newPerson.getPhoneNumber());
-                    person.setEmail(newPerson.getEmail());
-                    person.setLogin(newPerson.getLogin());
-                    person.setPassword(newPerson.getPassword());
-                    person.setPicture(newPerson.getPicture());
-                    person.setBirthDate(newPerson.getBirthDate());
-                    return personRepository.save(person);
-                })
-                .orElseGet(() -> {
-                    newPerson.setId(id);
-                    return personRepository.save(newPerson);
-                });
-    }
-
-    @GetMapping("deletePerson/{id}")
+    // http://localhost:8081/SpringMVC/personApi/deletePerson/{id}
+    @DeleteMapping("deletePerson/{id}")
+    @ResponseBody
     void deletePerson(@PathVariable Long id) {
-        personRepository.deleteById(id);
+        personService.deletePerson(id);
     }
 }
