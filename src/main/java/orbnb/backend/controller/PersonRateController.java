@@ -25,9 +25,9 @@ public class PersonRateController {
         return listPersonRate;
     }
 
-    //http://localhost:8081/SpringMVC/personRate/retrieve-all-personRate/{id_personRate}
+    //http://localhost:8081/SpringMVC/personRate/retrieve-personRate/{id_personRate}
 
-    @GetMapping("/retrieve-all-personRate/{id_personRate}")
+    @GetMapping("/retrieve-personRate/{id_personRate}")
     @ResponseBody
     public PersonRate getPersonRate(@PathVariable("id_personRate") Long id){
         return personRateService.retrievePersonRate(id);

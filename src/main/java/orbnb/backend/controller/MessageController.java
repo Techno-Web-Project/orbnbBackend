@@ -24,9 +24,9 @@ public class MessageController {
         return listMessages;
     }
 
-    //http://localhost:8081/SpringMVC/message/retrieve-all-messages/{id_message}
+    //http://localhost:8081/SpringMVC/message/retrieve-message/{id_message}
 
-    @GetMapping("/retrieve-all-messages/{id_message}")
+    @GetMapping("/retrieve-message/{id_message}")
     @ResponseBody
     public Message getMessage(@PathVariable("id_message") Long id_message){
         return messageService.retrieveMessage(id_message);
