@@ -12,7 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class PersonRate {
     @Id
-    @GeneratedValue( strategy = GenerationType.AUTO )
+    @GeneratedValue( strategy = GenerationType.IDENTITY)
     @Column(name="id_personRate")
     private Long id_person_rate;
     @Column(name="rate")

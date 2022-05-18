@@ -14,7 +14,7 @@ import java.util.List;
 public class Message {
 
     @Id
-    @GeneratedValue( strategy = GenerationType.AUTO )
+    @GeneratedValue( strategy = GenerationType.IDENTITY )
     @Column(name="id_message")
     private Long id_message;
 
