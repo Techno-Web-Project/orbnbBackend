@@ -4,9 +4,11 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import orbnb.backend.personRate.PersonRate;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Data
@@ -40,6 +42,11 @@ public class Person {
     @Temporal(TemporalType.DATE)
     @Column(name = "birth_date")
     private Date birthDate;
+
+    @OneToMany
+    @JoinTable(name = "T_PERSON_PERSONRATE", joinColumns = {@JoinColumn(name = "PERSON_ID")},
+            inverseJoinColumns = {@JoinColumn(name = "PERSONRATE_ID")})
+    private Set<PersonRate> personRates;
 
     public Person(String firstName, String lastName, String phoneNumber, String email, String login, String password, String picture, Date birthDate) {
         this.firstName = firstName;

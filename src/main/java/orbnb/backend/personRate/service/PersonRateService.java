@@ -15,5 +15,7 @@ public interface PersonRateService {
     void deletePersonRate(Long personRateId);
 
     Optional<PersonRate> getPersonRateById(Long personRateId);
+
+    void assignRateToPerson(Long idPr, Long idPs);
 }
 

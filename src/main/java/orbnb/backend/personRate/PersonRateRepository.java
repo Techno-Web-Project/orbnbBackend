@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PersonRateRepository extends JpaRepository<PersonRate, Long> {
-
+    PersonRate findPersonRateByPersonRateId(Long id);
 }

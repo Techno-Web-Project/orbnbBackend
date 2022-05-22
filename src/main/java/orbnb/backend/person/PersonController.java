@@ -1,6 +1,7 @@
 package orbnb.backend.person;
 
 import orbnb.backend.person.service.PersonService;
+import orbnb.backend.personRate.service.PersonRateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,9 @@ public class PersonController {
 
     @Autowired
     private PersonService personService;
+
+    @Autowired
+    private PersonRateService personRateService;
 
 
     @GetMapping("getAllPersons")
@@ -41,5 +45,10 @@ public class PersonController {
     @DeleteMapping("deletePerson/{personId}")
     void deletePerson(@PathVariable Long personId) {
         personService.deletePerson(personId);
+    }
+
+    @PutMapping("assign-person-rate/{personrate-id}/{person-id}")
+    public void assignPersonRate(@PathVariable("personrate-id")Long pr_id, @PathVariable("person-id")Long ps_id){
+        personRateService.assignRateToPerson(pr_id,ps_id);
     }
 }

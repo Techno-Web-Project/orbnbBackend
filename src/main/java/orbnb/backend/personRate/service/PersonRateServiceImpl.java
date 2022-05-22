@@ -1,5 +1,7 @@
 package orbnb.backend.personRate.service;
 
+import orbnb.backend.person.Person;
+import orbnb.backend.person.PersonRepository;
 import orbnb.backend.personRate.PersonRate;
 import orbnb.backend.personRate.PersonRateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,9 @@ public class PersonRateServiceImpl implements PersonRateService {
 
     @Autowired
     private PersonRateRepository personRateRepository;
+
+    @Autowired
+    private PersonRepository personRepository;
 
     @Override
     public List<PersonRate> getAllPersonRate() {
@@ -32,5 +37,15 @@ public class PersonRateServiceImpl implements PersonRateService {
     @Override
     public Optional<PersonRate> getPersonRateById(Long personRateId) {
         return this.personRateRepository.findById(personRateId);
+    }
+
+    @Override
+    public void assignRateToPerson(Long idPr, Long idPs){
+        PersonRate pr = this.personRateRepository.findPersonRateByPersonRateId(idPr);
+        Person ps = this.personRepository.findPersonById(idPs);
+        ps.getPersonRates().add(pr);
+        personRepository.save(ps);
+
+
     }
 }
