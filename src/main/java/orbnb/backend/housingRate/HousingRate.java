@@ -1,4 +1,4 @@
-package orbnb.backend.model;
+package orbnb.backend.housingRate;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,15 +12,16 @@ import java.util.Date;
 @Data
 public class HousingRate {
     @Id
-    @GeneratedValue( strategy = GenerationType.AUTO )
-    @Column(name="id_housing_rate")
-    private Long id_housing_rate;
-    @Column(name="rate")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_housing_rate")
+    private Long housingRateId;
+
     private Integer rate;
-    @Column(name="comment")
+
     private String comment;
+
     @Temporal(TemporalType.DATE)
-    @Column(name="rating_date")
-    private Date rating_date;
+    @Column(name = "rating_date")
+    private Date ratingDate;
 
 }
