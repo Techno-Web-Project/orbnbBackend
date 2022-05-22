@@ -1,4 +1,4 @@
-package orbnb.backend.model;
+package orbnb.backend.picture;
 
 
 import lombok.Data;
@@ -12,9 +12,9 @@ import javax.persistence.*;
 @Data
 public class Picture {
     @Id
-    @GeneratedValue( strategy = GenerationType.AUTO )
-    @Column(name="id_picture")
-    private Long id_picture;
-    @Column(name="title")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_picture")
+    private Long pictureId;
+
     private String title;
 }

@@ -15,22 +15,22 @@ public class PersonRateServiceImpl implements PersonRateService {
     private PersonRateRepository personRateRepository;
 
     @Override
-    public List<PersonRate> getAllPersonRate(){
+    public List<PersonRate> getAllPersonRate() {
         return this.personRateRepository.findAll();
     }
 
     @Override
-    public PersonRate addPersonRate(PersonRate personRate){
+    public PersonRate addPersonRate(PersonRate personRate) {
         return this.personRateRepository.save(personRate);
     }
 
     @Override
-    public void deletePersonRate(Long personRateId){
+    public void deletePersonRate(Long personRateId) {
         this.personRateRepository.deleteById(personRateId);
     }
 
     @Override
-    public Optional<PersonRate> getPersonRateById(Long personRateId){
+    public Optional<PersonRate> getPersonRateById(Long personRateId) {
         return this.personRateRepository.findById(personRateId);
     }
 }

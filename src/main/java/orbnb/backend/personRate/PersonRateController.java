@@ -18,22 +18,22 @@ public class PersonRateController {
     private PersonRateService personRateService;
 
     @GetMapping("/getAllPersonRates")
-    public ResponseEntity<List<PersonRate>> getPersonRate(){
+    public ResponseEntity<List<PersonRate>> getPersonRate() {
         return new ResponseEntity<>(this.personRateService.getAllPersonRate(), HttpStatus.OK);
     }
 
     @GetMapping("/getPersonRateById/{personRateId}")
-    public ResponseEntity<Optional<PersonRate>> getPersonRate(@PathVariable("personRateId") Long personRateId){
+    public ResponseEntity<Optional<PersonRate>> getPersonRate(@PathVariable("personRateId") Long personRateId) {
         return new ResponseEntity<>(this.personRateService.getPersonRateById(personRateId), HttpStatus.OK);
     }
 
     @PostMapping("/addPersonRate")
-    public ResponseEntity<PersonRate> addPersonRate(@RequestBody PersonRate personRate){
+    public ResponseEntity<PersonRate> addPersonRate(@RequestBody PersonRate personRate) {
         return new ResponseEntity<>(this.personRateService.addPersonRate(personRate), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/deletePersonRate/{personRateId}")
-    public void removePersonRate(@PathVariable("personRateId") Long personRateId){
+    public void removePersonRate(@PathVariable("personRateId") Long personRateId) {
         this.personRateService.deletePersonRate(personRateId);
     }
 }
