@@ -44,6 +44,7 @@ public class PersonRateServiceImpl implements PersonRateService {
         PersonRate pr = this.personRateRepository.findPersonRateByPersonRateId(idPr);
         Person ps = this.personRepository.findPersonById(idPs);
         ps.getPersonRates().add(pr);
+        pr.setPersonId(idPs);
         personRepository.save(ps);
 
 

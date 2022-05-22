@@ -20,6 +20,8 @@ public class PersonRate {
 
     private String comment;
 
+    private Long PersonId;
+
     @Temporal(TemporalType.DATE)
     @Column(name = "rating_date")
     private Date ratingDate;
