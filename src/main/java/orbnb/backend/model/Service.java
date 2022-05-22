@@ -3,6 +3,7 @@ package orbnb.backend.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import orbnb.backend.housing.Housing;
 
 import javax.persistence.*;
 import java.util.Set;

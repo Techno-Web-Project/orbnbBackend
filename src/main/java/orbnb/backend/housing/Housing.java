@@ -1,7 +1,9 @@
-package orbnb.backend.model;
+package orbnb.backend.housing;
 
 import lombok.*;
+import orbnb.backend.model.Service;
 import orbnb.backend.model.enumeration.HousingType;
+import orbnb.backend.person.Person;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -17,22 +19,17 @@ public class Housing {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "description")
     private String description;
 
-    @Column(name = "street")
     private String street;
 
-    @Column(name = "city")
     private String city;
 
-    @Column(name = "country")
     private String country;
 
     @Column(name="postal_code")
     private String postalCode;
 
-    @Column(name = "validate")
     private Boolean validate;
 
     @Enumerated(EnumType.STRING)

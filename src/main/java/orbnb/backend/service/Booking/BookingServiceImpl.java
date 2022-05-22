@@ -1,7 +1,6 @@
 package orbnb.backend.service.Booking;
 
 import orbnb.backend.model.Booking;
-import orbnb.backend.model.Housing;
 import orbnb.backend.repository.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

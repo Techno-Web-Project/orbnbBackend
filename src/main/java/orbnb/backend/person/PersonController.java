@@ -1,6 +1,5 @@
 package orbnb.backend.person;
 
-import orbnb.backend.person.Person;
 import orbnb.backend.person.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

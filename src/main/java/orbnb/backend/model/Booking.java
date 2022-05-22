@@ -2,14 +2,16 @@ package orbnb.backend.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import orbnb.backend.housing.Housing;
 import orbnb.backend.model.enumeration.BookingStatus;
+import orbnb.backend.person.Person;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name = "BOOKING")
+@Table(name = "booking")
 @NoArgsConstructor
 @Data
 public class Booking implements Serializable {

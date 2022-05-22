@@ -1,7 +1,6 @@
 package orbnb.backend.repository;
 
 import orbnb.backend.model.Booking;
-import orbnb.backend.model.Housing;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;

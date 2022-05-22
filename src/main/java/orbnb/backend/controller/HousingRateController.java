@@ -1,6 +1,5 @@
 package orbnb.backend.controller;
 
-import orbnb.backend.model.Housing;
 import orbnb.backend.model.HousingRate;
 import orbnb.backend.service.HousingRate.HousingRateService;
 import org.springframework.beans.factory.annotation.Autowired;

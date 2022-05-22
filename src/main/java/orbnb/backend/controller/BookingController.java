@@ -1,12 +1,10 @@
 package orbnb.backend.controller;
 
 import orbnb.backend.model.Booking;
-import orbnb.backend.model.Housing;
 import orbnb.backend.service.Booking.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.print.Book;
 import java.util.List;
 
 @RestController
