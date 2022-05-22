@@ -1,20 +1,21 @@
-package orbnb.backend.service.Person;
+package orbnb.backend.person.service;
 
-import orbnb.backend.model.Person;
-import orbnb.backend.repository.PersonRepository;
+import orbnb.backend.person.Person;
+import orbnb.backend.person.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class PersonServiceImp implements PersonService{
+public class PersonServiceImp implements PersonService {
 
     @Autowired
-    PersonRepository personRepository;
+    private PersonRepository personRepository;
 
     @Override
-    public List<Person> retrieveAllPersons() {
+    public List<Person> getAllPersons() {
         return this.personRepository.findAll();
     }
 
@@ -29,12 +30,12 @@ public class PersonServiceImp implements PersonService{
     }
 
     @Override
-    public Person retrievePersonById(Long id) {
-        return this.personRepository.findPersonById(id);
+    public Optional<Person> getPersonById(Long id) {
+        return this.personRepository.findById(id);
     }
 
     @Override
-    public Person retrievePersonByLogin(String login){
+    public Person getPersonByLogin(String login) {
         return this.personRepository.findPersonByLogin(login);
     }
 }

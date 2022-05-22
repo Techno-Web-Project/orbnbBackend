@@ -1,4 +1,6 @@
-package orbnb.backend.model;
+package orbnb.backend.person;
+
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -7,23 +9,24 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Data
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name="person")
+@Table(name = "person")
 public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name="first_name")
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name="last_name")
+    @Column(name = "last_name")
     private String lastName;
 
-    @Column(name="phone_number")
+    @Column(name = "phone_number")
     private String phoneNumber;
 
     private String email;
@@ -35,7 +38,7 @@ public class Person {
     private String picture;
 
     @Temporal(TemporalType.DATE)
-    @Column(name="birth_date")
+    @Column(name = "birth_date")
     private Date birthDate;
 
     public Person(String firstName, String lastName, String phoneNumber, String email, String login, String password, String picture, Date birthDate) {
