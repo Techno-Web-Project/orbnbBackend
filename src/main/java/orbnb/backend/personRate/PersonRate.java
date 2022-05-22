@@ -1,4 +1,4 @@
-package orbnb.backend.model;
+package orbnb.backend.personRate;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,12 +14,13 @@ public class PersonRate {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     @Column(name="id_personRate")
-    private Long id_person_rate;
-    @Column(name="rate")
+    private Long personRateId;
+
     private Integer rate;
-    @Column(name="comment")
+
     private String comment;
+
     @Temporal(TemporalType.DATE)
     @Column(name="rating_date")
-    private Date rating_date;
+    private Date ratingDate;
 }
