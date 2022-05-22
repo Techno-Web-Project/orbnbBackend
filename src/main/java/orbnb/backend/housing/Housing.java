@@ -2,7 +2,7 @@ package orbnb.backend.housing;
 
 import lombok.*;
 import orbnb.backend.model.Service;
-import orbnb.backend.model.enumeration.HousingType;
+import orbnb.backend.housing.enumeration.HousingType;
 import orbnb.backend.person.Person;
 
 import javax.persistence.*;

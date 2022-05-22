@@ -1,9 +1,9 @@
-package orbnb.backend.model;
+package orbnb.backend.booking;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import orbnb.backend.housing.Housing;
-import orbnb.backend.model.enumeration.BookingStatus;
+import orbnb.backend.booking.enumeration.BookingStatus;
 import orbnb.backend.person.Person;
 
 import javax.persistence.*;
@@ -18,23 +18,23 @@ public class Booking implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_booking")
-    private Long id_booking;
+    private Long bookingId;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "booking_date")
-    private Date booking_date;
+    private Date bookingDate;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "booking_date_start")
-    private Date booking_date_start;
+    private Date bookingStartDate;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "booking_date_end")
-    private Date booking_date_end;
+    private Date bookingEndDate;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "booking_status")
-    private BookingStatus booking_status;
+    private BookingStatus bookingStatus;
 
     @ManyToOne
     @JoinColumn(name = "id_person")

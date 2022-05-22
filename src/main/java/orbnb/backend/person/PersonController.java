@@ -18,14 +18,14 @@ public class PersonController {
     private PersonService personService;
 
 
-    @GetMapping("persons")
+    @GetMapping("getAllPersons")
     public ResponseEntity<List<Person>> getPersons() {
         return new ResponseEntity<>(this.personService.getAllPersons(), HttpStatus.OK);
     }
 
-    @GetMapping("getPersonById/{id}")
-    public ResponseEntity<Optional<Person>> getPersonById(@PathVariable long id) {
-        return new ResponseEntity<>(this.personService.getPersonById(id), HttpStatus.OK);
+    @GetMapping("getPersonById/{personId}")
+    public ResponseEntity<Optional<Person>> getPersonById(@PathVariable long personId) {
+        return new ResponseEntity<>(this.personService.getPersonById(personId), HttpStatus.OK);
     }
 
     @GetMapping("getPersonByLogin/{login}")
@@ -33,13 +33,13 @@ public class PersonController {
         return new ResponseEntity<>(this.personService.getPersonByLogin(login), HttpStatus.OK);
     }
 
-    @PostMapping("newPerson")
+    @PostMapping("addPerson")
     public ResponseEntity<Person> addPerson(@RequestBody Person newPerson) {
         return new ResponseEntity<>(personService.addPerson(newPerson), HttpStatus.CREATED);
     }
 
-    @DeleteMapping("deletePerson/{id}")
-    void deletePerson(@PathVariable Long id) {
-        personService.deletePerson(id);
+    @DeleteMapping("deletePerson/{personId}")
+    void deletePerson(@PathVariable Long personId) {
+        personService.deletePerson(personId);
     }
 }
