@@ -1,5 +1,6 @@
 package orbnb.backend.person;
 
+import orbnb.backend.housing.service.HousingService;
 import orbnb.backend.person.service.PersonService;
 import orbnb.backend.personRate.service.PersonRateService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,9 @@ public class PersonController {
 
     @Autowired
     private PersonRateService personRateService;
+
+    @Autowired
+    private HousingService housingService;
 
 
     @GetMapping("getAllPersons")
@@ -48,7 +52,12 @@ public class PersonController {
     }
 
     @PutMapping("assign-person-rate/{personrate-id}/{person-id}")
-    public void assignPersonRate(@PathVariable("personrate-id")Long pr_id, @PathVariable("person-id")Long ps_id){
-        personRateService.assignRateToPerson(pr_id,ps_id);
+    public void assignPersonRate(@PathVariable("personrate-id") Long pr_id, @PathVariable("person-id") Long ps_id) {
+        personRateService.assignRateToPerson(pr_id, ps_id);
+    }
+
+    @PutMapping("assignHousing/{personId}/{housingId}")
+    public void assignHousingToPerson(@PathVariable("personId") Long personId, @PathVariable("housingId") Long housingId) {
+        this.housingService.assignHousingToPerson(personId, housingId);
     }
 }

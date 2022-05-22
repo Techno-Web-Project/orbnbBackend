@@ -27,17 +27,14 @@ public class HousingController {
         return new ResponseEntity<>(this.housingService.getHousingById(housingId), HttpStatus.OK);
     }
 
-    @GetMapping("/getHousingsByOwnerId/{ownerId}")
-    public ResponseEntity<List<Housing>> getHousingsByOwnerId(@PathVariable("ownerId") Long ownerId){
-        return new ResponseEntity<>(this.housingService.getHousingsByOwnerId(ownerId), HttpStatus.OK);
-    }
-
     @PostMapping("/addHousing")
-    public ResponseEntity<Housing> addHousing (@RequestBody Housing housing) {
-        return new ResponseEntity<>(this.housingService.addHousing(housing), HttpStatus.CREATED) ;
+    public ResponseEntity<Housing> addHousing(@RequestBody Housing housing) {
+        return new ResponseEntity<>(this.housingService.addHousing(housing), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/deleteHousing/{housingId}")
     public void removeHousing(@PathVariable("housingId") Long housingId) {
-        this.housingService.deleteHousing(housingId);}
+        this.housingService.deleteHousing(housingId);
+    }
+
 }

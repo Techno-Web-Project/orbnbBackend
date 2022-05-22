@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import orbnb.backend.housing.Housing;
 import orbnb.backend.personRate.PersonRate;
 
 import javax.persistence.*;
@@ -47,6 +48,11 @@ public class Person {
     @JoinTable(name = "T_PERSON_PERSONRATE", joinColumns = {@JoinColumn(name = "PERSON_ID")},
             inverseJoinColumns = {@JoinColumn(name = "PERSONRATE_ID")})
     private Set<PersonRate> personRates;
+
+    @OneToMany
+    @JoinTable(name = "housings_owned_relation", joinColumns = {@JoinColumn(name = "person_id")},
+            inverseJoinColumns = {@JoinColumn(name = "housing_id")})
+    private Set<Housing> housingsOwned;
 
     public Person(String firstName, String lastName, String phoneNumber, String email, String login, String password, String picture, Date birthDate) {
         this.firstName = firstName;

@@ -3,6 +3,9 @@ package orbnb.backend.housing.service;
 import orbnb.backend.housing.Housing;
 
 import orbnb.backend.housing.HousingRepository;
+import orbnb.backend.person.Person;
+import orbnb.backend.person.PersonRepository;
+import orbnb.backend.person.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +17,9 @@ public class HousingServiceImpl implements HousingService {
 
     @Autowired
     private HousingRepository housingRepository;
+
+    @Autowired
+    private PersonRepository personRepository;
 
     @Override
     public List<Housing> getAllHousings() {
@@ -36,8 +42,10 @@ public class HousingServiceImpl implements HousingService {
     }
 
     @Override
-    public List<Housing> getHousingsByOwnerId(Long ownerId) {
-        return this.housingRepository.findHousingsByOwnerId(ownerId);
+    public void assignHousingToPerson(Long personId, Long housingId) {
+        Person person = this.personRepository.findPersonById(personId);
+        person.getHousingsOwned().add(this.housingRepository.findHousingsById(housingId));
+        this.personRepository.save(person);
     }
 
 }
