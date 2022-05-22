@@ -40,12 +40,12 @@ public class PersonRateServiceImpl implements PersonRateService {
     }
 
     @Override
-    public void assignRateToPerson(Long idPr, Long idPs){
-        PersonRate pr = this.personRateRepository.findPersonRateByPersonRateId(idPr);
-        Person ps = this.personRepository.findPersonById(idPs);
-        ps.getPersonRates().add(pr);
-        pr.setPersonId(idPs);
-        personRepository.save(ps);
+    public void assignRateToPerson(Long idPersonRate, Long idPerson){
+        PersonRate personRate = this.personRateRepository.findPersonRateByPersonRateId(idPersonRate);
+        Person person = this.personRepository.findPersonById(idPerson);
+        person.getPersonRates().add(personRate);
+        personRate.setPersonId(idPerson);
+        personRepository.save(person);
 
 
     }

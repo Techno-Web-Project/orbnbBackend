@@ -16,6 +16,6 @@ public interface PersonRateService {
 
     Optional<PersonRate> getPersonRateById(Long personRateId);
 
-    void assignRateToPerson(Long idPr, Long idPs);
+    void assignRateToPerson(Long idPersonrate, Long idPerson);
 }
 

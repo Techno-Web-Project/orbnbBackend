@@ -52,8 +52,8 @@ public class PersonController {
     }
 
     @PutMapping("assign-person-rate/{personrate-id}/{person-id}")
-    public void assignPersonRate(@PathVariable("personrate-id") Long pr_id, @PathVariable("person-id") Long ps_id) {
-        personRateService.assignRateToPerson(pr_id, ps_id);
+    public void assignPersonRate(@PathVariable("personrate-id") Long personrate_id, @PathVariable("person-id") Long person_id) {
+        personRateService.assignRateToPerson(personrate_id, person_id);
     }
 
     @PutMapping("assignHousing/{personId}/{housingId}")
