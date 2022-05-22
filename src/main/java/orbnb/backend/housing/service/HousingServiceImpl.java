@@ -35,4 +35,9 @@ public class HousingServiceImpl implements HousingService {
         return this.housingRepository.findById(housingId);
     }
 
+    @Override
+    public List<Housing> getHousingsByOwnerId(Long ownerId) {
+        return this.housingRepository.findHousingsByOwnerId(ownerId);
+    }
+
 }

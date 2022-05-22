@@ -15,4 +15,6 @@ public interface HousingService {
 
     Optional<Housing> getHousingById(Long housingId);
 
+    List<Housing> getHousingsByOwnerId(Long ownerId);
+
 }
