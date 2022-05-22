@@ -1,6 +1,6 @@
-package orbnb.backend.service.Message;
+package orbnb.backend.message.service;
 
-import orbnb.backend.model.Message;
+import orbnb.backend.message.Message;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package orbnb.backend.model;
+package orbnb.backend.message;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

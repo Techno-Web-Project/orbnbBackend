@@ -1,6 +1,6 @@
-package orbnb.backend.repository;
+package orbnb.backend.message;
 
-import orbnb.backend.model.Message;
+import orbnb.backend.message.Message;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;

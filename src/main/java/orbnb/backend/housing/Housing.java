@@ -1,7 +1,6 @@
 package orbnb.backend.housing;
 
 import lombok.*;
-import orbnb.backend.model.Service;
 import orbnb.backend.housing.enumeration.HousingType;
 import orbnb.backend.person.Person;
 
@@ -42,8 +41,8 @@ public class Housing {
     @ManyToOne
     @JoinColumn(name = "id_person")
     private Person person;
-
-    @ManyToMany
-    Set<Service> housingLinkedServices;
+//
+//    @ManyToMany
+//    Set<Service> housingLinkedServices;
 
 }
