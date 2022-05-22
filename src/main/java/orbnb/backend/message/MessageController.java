@@ -4,51 +4,41 @@ package orbnb.backend.message;
 import orbnb.backend.message.Message;
 import orbnb.backend.message.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/message")
+@RequestMapping("/messageApi")
 public class MessageController {
     @Autowired
     MessageService messageService;
 
-    //http://localhost:8081/SpringMVC/message/retrieve-all-messages
-
-    @GetMapping("/retrieve-all-messages")
-    @ResponseBody
-    public List<Message> getMessages(){
-        List<Message> listMessages = messageService.retrieveAllMessages();
-        return listMessages;
+    @GetMapping("/getAllMessages")
+    public ResponseEntity<List<Message>> getMessages(){
+        return new ResponseEntity<>(this.messageService.getAllMessages(), HttpStatus.OK);
     }
 
-    //http://localhost:8081/SpringMVC/message/retrieve-message/{id_message}
-
-    @GetMapping("/retrieve-message/{id_message}")
-    @ResponseBody
-    public Message getMessage(@PathVariable("id_message") Long id_message){
-        return messageService.retrieveMessage(id_message);
+    @GetMapping("/getMessageById/{id_message}")
+    public ResponseEntity<Optional<Message>> getMessageById(@PathVariable("id_message") Long id_message){
+        return new ResponseEntity<>(this.messageService.getMessageById(id_message), HttpStatus.OK);
     }
 
-
-    //http://localhost:8081/SpringMVC/message/add_message
-
-    @PostMapping("/add_message")
+    @PostMapping("/addMessage")
     @ResponseBody
-    public Message addMessage(@RequestBody Message m){
-        Message message = messageService.addMessage(m);
-        return message;
+    public ResponseEntity<Message> addMessage(@RequestBody Message message){
+        return new ResponseEntity<>(this.messageService.addMessage(message), HttpStatus.CREATED);
     }
 
 
-    //http://localhost:8081/SpringMVC/message/remove-message/{id_message}
-
-    @DeleteMapping("/remove-message/{id_message}")
+    @DeleteMapping("/removeMessage/{id_message}")
     @ResponseBody
     public void removeMessage(@PathVariable("id_message") Long id_message){
-        messageService.deleteMessage(id_message);
+        this.messageService.deleteMessage(id_message);
     }
 
 }

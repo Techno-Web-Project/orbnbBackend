@@ -3,14 +3,15 @@ package orbnb.backend.message.service;
 import orbnb.backend.message.Message;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface MessageService {
 
-    public List<Message> retrieveAllMessages();
+    public List<Message> getAllMessages();
 
     public Message addMessage(Message message);
 
     public void deleteMessage(Long id_message);
 
-    public Message retrieveMessage(Long id_message);
+    public Optional<Message> getMessageById(Long id_message);
 }
