@@ -16,7 +16,7 @@ import java.util.Date;
 @Data
 public class Booking implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_booking")
     private Long bookingId;
 

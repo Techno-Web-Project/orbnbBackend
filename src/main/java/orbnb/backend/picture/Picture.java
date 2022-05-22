@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Data
 public class Picture {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_picture")
     private Long pictureId;
 

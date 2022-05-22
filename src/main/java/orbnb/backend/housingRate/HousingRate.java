@@ -12,7 +12,7 @@ import java.util.Date;
 @Data
 public class HousingRate {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_housing_rate")
     private Long housingRateId;
 

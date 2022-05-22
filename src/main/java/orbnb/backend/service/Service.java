@@ -12,7 +12,7 @@ import java.io.Serializable;
 @Data
 public class Service implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "service_id")
     private Long serviceId;
 
