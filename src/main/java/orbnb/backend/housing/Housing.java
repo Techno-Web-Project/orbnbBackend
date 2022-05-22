@@ -38,6 +38,9 @@ public class Housing {
     @Column(name="number_of_bed")
     private Integer numberOfBed;
 
+    @Column(name="owner_id")
+    private Long ownerId;
+
     @ManyToOne
     @JoinColumn(name = "id_person")
     private Person person;
