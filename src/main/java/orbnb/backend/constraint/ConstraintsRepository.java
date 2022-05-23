@@ -5,4 +5,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ConstraintsRepository extends JpaRepository<Constraints, Long> {
+
+    Constraints findConstraintsByConstraintsId(Long Id);
 }

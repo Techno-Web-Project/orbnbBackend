@@ -3,6 +3,7 @@ package orbnb.backend.housing;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import orbnb.backend.booking.Booking;
+import orbnb.backend.constraint.Constraints;
 import orbnb.backend.housing.enumeration.HousingType;
 import orbnb.backend.person.Person;
 import orbnb.backend.service.Service;
@@ -54,6 +55,11 @@ public class Housing {
     @JoinTable(name = "T_Housing_Service", joinColumns = {@JoinColumn(name="HOUSING_ID")},
     inverseJoinColumns = {@JoinColumn(name = "SERVICE_ID")})
     private Set<Service> Services;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "T_Housing_Constraint", joinColumns = {@JoinColumn(name="HOUSING_ID")},
+            inverseJoinColumns = {@JoinColumn(name = "CONSTRAINT_ID")})
+    private Set<Constraints> Constraints;
 
     public Set<Booking> getBookings() {
         return bookings;

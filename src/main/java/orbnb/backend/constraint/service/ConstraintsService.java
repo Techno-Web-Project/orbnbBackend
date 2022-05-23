@@ -14,4 +14,6 @@ public interface ConstraintsService {
     void deleteConstraint(Long constraintId);
 
     Optional<Constraints> getConstraintById(Long constraintId);
+
+    void AssignConstraintToHousing(Long HousingId, Long ConstraintId);
 }
