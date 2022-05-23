@@ -16,4 +16,6 @@ public interface BookingService {
     void deleteBooking(Long bookingId) ;
 
     Optional<Booking> getBookingById(Long bookingId) ;
+
+    Booking saveBooking(Booking booking);
 }

@@ -1,14 +1,17 @@
 package orbnb.backend.person;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import orbnb.backend.booking.Booking;
 import orbnb.backend.housing.Housing;
 import orbnb.backend.personRate.PersonRate;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -53,6 +56,22 @@ public class Person {
     @JoinTable(name = "housings_owned_relation", joinColumns = {@JoinColumn(name = "person_id")},
             inverseJoinColumns = {@JoinColumn(name = "housing_id")})
     private Set<Housing> housingsOwned;
+
+/*
+    @OneToMany
+    @JoinTable(name = "person_booking_relation", joinColumns = {@JoinColumn(name = "person_id")},
+            inverseJoinColumns = {@JoinColumn(name = "id_booking")})
+    private Set<Booking> personBooking = new HashSet<>();
+
+ */
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "person")
+    private Set<Booking> bookings = new HashSet<>();
+
+    public Set<Booking> getBookings() {
+        return bookings;
+    }
 
     public Person(String firstName, String lastName, String phoneNumber, String email, String login, String password, String picture, Date birthDate) {
         this.firstName = firstName;

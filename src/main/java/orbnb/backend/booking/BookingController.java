@@ -1,6 +1,8 @@
 package orbnb.backend.booking;
 
 import orbnb.backend.booking.service.BookingService;
+import orbnb.backend.person.Person;
+import orbnb.backend.person.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +18,9 @@ public class BookingController {
 
     @Autowired
     private BookingService bookingService;
+
+    @Autowired
+    private PersonService personService;
 
     @GetMapping("/getAllBookings")
     public ResponseEntity<List<Booking>> getBookings() {
@@ -35,6 +40,17 @@ public class BookingController {
     @DeleteMapping("/deleteBooking/{bookingId}")
     public void removeBooking(@PathVariable("bookingId") Long bookingId) {
         this.bookingService.deleteBooking(bookingId);
+    }
+
+    @PutMapping("/{id_booking}/assignedBookingToPerson/{id_person}")
+    Booking assignedBookingToPerson(
+            @PathVariable Long id_person,
+            @PathVariable Long id_booking
+    ) {
+        Booking booking = bookingService.getBookingById(id_booking).get();
+        Person person = personService.getPersonById(id_person).get();
+        booking.setPerson(person);
+        return bookingService.saveBooking(booking);
     }
 
 }

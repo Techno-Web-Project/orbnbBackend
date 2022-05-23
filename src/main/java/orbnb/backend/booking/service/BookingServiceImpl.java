@@ -30,4 +30,8 @@ public class BookingServiceImpl implements BookingService{
     public Optional<Booking> getBookingById(Long bookingId){
         return this.bookingRepository.findById(bookingId);
     }
+
+    public Booking saveBooking(Booking booking){
+        return bookingRepository.save(booking);
+    }
 }
