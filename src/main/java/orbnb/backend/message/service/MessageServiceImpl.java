@@ -38,10 +38,10 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     public void assignMessageToPerson(Long idMessage, Long idPerson) {
-        Message message =  this.messageRepository.findMessageById_message(idMessage);
+        Message message =  this.messageRepository.findMessageByIdmessage(idMessage);
         Person person =  this.personRepository.findPersonById(idPerson);
         person.getMessage().add(message);
-        message.setId_message(idPerson);
+        message.setIdmessage(idMessage);
         personRepository.save(person);
     }
 
