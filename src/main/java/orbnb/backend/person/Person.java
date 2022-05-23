@@ -65,6 +65,8 @@ public class Person {
 
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "person_owner_message", joinColumns = {@JoinColumn(name = "id_person")},
+            inverseJoinColumns = {@JoinColumn(name = "id_message")})
     private Set<Message> Message = new HashSet<>();
 
     public Person(String firstName, String lastName, String phoneNumber, String email, String login, String password, String picture, Date birthDate) {
