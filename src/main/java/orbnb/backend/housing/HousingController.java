@@ -1,6 +1,7 @@
 package orbnb.backend.housing;
 
 import orbnb.backend.housing.service.HousingService;
+import orbnb.backend.service.service.ServiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,9 @@ import java.util.Optional;
 public class HousingController {
     @Autowired
     private HousingService housingService;
+
+    @Autowired
+    private ServiceService serviceService;
 
     @GetMapping("/getAllHousings")
     @ResponseBody
@@ -35,6 +39,11 @@ public class HousingController {
     @DeleteMapping("/deleteHousing/{housingId}")
     public void removeHousing(@PathVariable("housingId") Long housingId) {
         this.housingService.deleteHousing(housingId);
+    }
+
+    @PutMapping("/assignservice/{housingId}/{serviceId}")
+    public void assignServiceToHousing(@PathVariable("housingId") Long HousingId, @PathVariable("serviceId") Long ServiceId){
+        this.serviceService.assignServiceToHousing(HousingId,ServiceId);
     }
 
 }
