@@ -48,8 +48,8 @@ public class Housing {
     @JsonIgnore
     @OneToMany(mappedBy = "housing")
     private Set<Booking> bookings = new HashSet<>();
-//
-//    @ManyToMany
-//    Set<Service> housingLinkedServices;
 
+    public Set<Booking> getBookings() {
+        return bookings;
+    }
 }

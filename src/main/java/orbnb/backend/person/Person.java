@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import orbnb.backend.booking.Booking;
 import orbnb.backend.housing.Housing;
+import orbnb.backend.message.Message;
 import orbnb.backend.personRate.PersonRate;
 
 import javax.persistence.*;
@@ -62,6 +63,9 @@ public class Person {
     @OneToMany(mappedBy = "person")
     private Set<Booking> bookings = new HashSet<>();
 
+    @JsonIgnore
+    @OneToMany()
+    private Set<Message> Message = new HashSet<>();
 
     public Person(String firstName, String lastName, String phoneNumber, String email, String login, String password, String picture, Date birthDate) {
         this.firstName = firstName;
@@ -79,4 +83,7 @@ public class Person {
         return bookings;
     }
 
+    public Set<Message> getMessage() {
+        return Message;
+    }
 }

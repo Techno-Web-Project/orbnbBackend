@@ -1,8 +1,12 @@
 package orbnb.backend.message;
 
 
+import orbnb.backend.booking.Booking;
+import orbnb.backend.housing.Housing;
 import orbnb.backend.message.Message;
 import orbnb.backend.message.service.MessageService;
+import orbnb.backend.person.Person;
+import orbnb.backend.person.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +21,9 @@ import java.util.Optional;
 public class MessageController {
     @Autowired
     MessageService messageService;
+
+    @Autowired
+    PersonService personService;
 
     @GetMapping("/getAllMessages")
     public ResponseEntity<List<Message>> getMessages(){
@@ -39,6 +46,18 @@ public class MessageController {
     @ResponseBody
     public void removeMessage(@PathVariable("id_message") Long id_message){
         this.messageService.deleteMessage(id_message);
+    }
+
+    @PutMapping("/{id_message}/assignedMessageToPerson/{id_person}")
+    Message assignedMessageToPerson(
+            @PathVariable Long id_message,
+            @PathVariable Long id_person
+    ) {
+
+        Message message = messageService.getMessageById(id_message).get();
+        Person person = personService.getPersonById(id_person).get();
+        message.setPerson(person);
+        return messageService.saveMessage(message);
     }
 
 }
