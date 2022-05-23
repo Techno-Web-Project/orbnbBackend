@@ -1,6 +1,7 @@
 package orbnb.backend.message;
 
 import orbnb.backend.message.Message;
+import orbnb.backend.personRate.PersonRate;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -11,5 +12,8 @@ import java.util.List;
 
 @Repository
 public interface MessageRepository extends JpaRepository<Message,Long> {
+
+    Message findMessageById_message(Long id_message);
+
 
 }
