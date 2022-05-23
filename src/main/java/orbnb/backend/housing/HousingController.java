@@ -1,8 +1,9 @@
 package orbnb.backend.housing;
 
 import orbnb.backend.constraint.service.ConstraintsService;
+import orbnb.backend.customConstraint.service.CustomConstraintService;
+import orbnb.backend.customService.service.CustomServiceService;
 import orbnb.backend.housing.service.HousingService;
-import orbnb.backend.housingRate.service.HousingRateService;
 import orbnb.backend.picture.service.PictureService;
 import orbnb.backend.service.service.ServiceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +28,13 @@ public class HousingController {
     private ConstraintsService constraintsService;
 
     @Autowired
-    private HousingRateService housingRateService;
+    private PictureService pictureService;
 
     @Autowired
-    private PictureService pictureService;
+    private CustomConstraintService customConstraintService;
+
+    @Autowired
+    private CustomServiceService customServiceService;
 
     @GetMapping("/getAllHousings")
     @ResponseBody
@@ -63,15 +67,20 @@ public class HousingController {
         this.constraintsService.AssignConstraintToHousing(HousingId,ConstraintId);
     }
 
-    @PutMapping("/assignhousingrate/{housingId}/{housingrateid}")
-    public void assignHousingRateToHousing(@PathVariable("housingId") Long HousingId, @PathVariable("housingrateid")Long HousingrateId) {
-        this.housingRateService.AssignHousingRateToHousing(HousingId, HousingrateId);
+    @PutMapping("/assignPictureToHousing/{housingId}/{pictureId}")
+    public void assignPictureToHousing(@PathVariable("housingId") Long housingId, @PathVariable("pictureId") Long pictureId){
+        this.pictureService.assignPictureToHousing(housingId, pictureId);
     }
 
-    @PutMapping("/assignpicture/{housingId}/{pictureId}")
-    public void assignPictureToHousing(@PathVariable("housingId") Long housingid, @PathVariable("pictureId") Long pictureid){
-            this.pictureService.assignPictureToHousing(housingid,pictureid);
-        }
+    @PutMapping("/assignCustomConstraintToHousing/{housingId}/{customConstraintId}")
+    public void assignCustomConstraintToHousing(@PathVariable("housingId") Long housingId, @PathVariable("customConstraintId") Long customConstraintId){
+        this.customConstraintService.assignCustomConstraintToHousing(housingId, customConstraintId);
+    }
+
+    @PutMapping("/assignCustomServiceToHousing/{housingId}/{customServiceId}")
+    public void assignCustomServiceToHousing(@PathVariable("housingId") Long housingId, @PathVariable("customServiceId") Long customServiceId){
+        this.customServiceService.assignCustomServiceToHousing(housingId, customServiceId);
+    }
 
 
 }

@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import orbnb.backend.booking.Booking;
 import orbnb.backend.constraint.Constraints;
+import orbnb.backend.customConstraint.CustomConstraint;
+import orbnb.backend.customService.CustomService;
 import orbnb.backend.housing.enumeration.HousingType;
 import orbnb.backend.housingRate.HousingRate;
 import orbnb.backend.person.Person;
@@ -54,6 +56,16 @@ public class Housing {
     @JoinTable(name = "housing_pictures", joinColumns = {@JoinColumn(name = "housing_id")},
             inverseJoinColumns = {@JoinColumn(name = "picture_id")})
     private Set<Picture> housingPictures;
+
+    @OneToMany
+    @JoinTable(name = "housing_custom_services", joinColumns = {@JoinColumn(name = "housing_id")},
+            inverseJoinColumns = {@JoinColumn(name = "custom_service_id")})
+    private Set<CustomService> customServices;
+
+    @OneToMany
+    @JoinTable(name = "housing_custom_constraints", joinColumns = {@JoinColumn(name = "housing_id")},
+            inverseJoinColumns = {@JoinColumn(name = "custom_constraint_id")})
+    private Set<CustomConstraint> customConstraints;
 
     @JsonIgnore
     @OneToMany(mappedBy = "housing")

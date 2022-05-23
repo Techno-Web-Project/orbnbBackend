@@ -13,4 +13,6 @@ public interface CustomServiceService {
 
     void deleteCustomService(Long customServiceId);
 
+    void assignCustomServiceToHousing(Long housingId, Long customServiceId);
+
 }

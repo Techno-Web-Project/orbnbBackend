@@ -8,4 +8,6 @@ import java.util.List;
 @Repository
 public interface CustomServiceRepository extends JpaRepository<CustomService, Long> {
     List<CustomService> getCustomServicesByIdLinkedHousing(Long idLinkedHousing);
+
+    CustomService getCustomServiceByCustomServiceId(Long customServiceId);
 }
