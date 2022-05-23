@@ -31,4 +31,7 @@ public class Message {
     @Column(name="time")
     private Date time;
 
+    @Column(name="id_destinataire")
+    private Long id_destinataire;
+
 }
