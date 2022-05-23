@@ -1,5 +1,7 @@
 package orbnb.backend.housingRate.service;
 
+import orbnb.backend.housing.Housing;
+import orbnb.backend.housing.HousingRepository;
 import orbnb.backend.housingRate.HousingRate;
 import orbnb.backend.housingRate.HousingRateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,9 @@ public class HousingRateServiceImpl implements HousingRateService {
 
     @Autowired
     private HousingRateRepository housingRateRepository;
+
+    @Autowired
+    private HousingRepository housingRepository;
 
     public List<HousingRate> getAllHousingRate() {
         return this.housingRateRepository.findAll();
@@ -28,5 +33,13 @@ public class HousingRateServiceImpl implements HousingRateService {
 
     public Optional<HousingRate> getHousingRateById(Long housingRateId) {
         return this.housingRateRepository.findById(housingRateId);
+    }
+
+    public void AssignHousingRateToHousing(Long idHousing, Long idHousingRate){
+        HousingRate housingRate = housingRateRepository.findHousingRateByHousingRateId(idHousingRate);
+        Housing housing = housingRepository.findHousingsById(idHousing);
+        housing.getHousingRates().add(housingRate);
+        housingRate.setHousingId(idHousing);
+        housingRepository.save(housing);
     }
 }

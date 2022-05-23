@@ -5,7 +5,9 @@ import lombok.*;
 import orbnb.backend.booking.Booking;
 import orbnb.backend.constraint.Constraints;
 import orbnb.backend.housing.enumeration.HousingType;
+import orbnb.backend.housingRate.HousingRate;
 import orbnb.backend.person.Person;
+import orbnb.backend.personRate.PersonRate;
 import orbnb.backend.service.Service;
 
 import javax.persistence.*;
@@ -60,6 +62,11 @@ public class Housing {
     @JoinTable(name = "T_Housing_Constraint", joinColumns = {@JoinColumn(name="HOUSING_ID")},
             inverseJoinColumns = {@JoinColumn(name = "CONSTRAINT_ID")})
     private Set<Constraints> Constraints;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "T_HOUSING_HOUSINGRATE", joinColumns = {@JoinColumn(name = "HOUSING_ID")},
+            inverseJoinColumns = {@JoinColumn(name = "HOUSINGRATE_ID")})
+    private Set<HousingRate> housingRates;
 
     public Set<Booking> getBookings() {
         return bookings;

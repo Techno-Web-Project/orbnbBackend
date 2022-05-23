@@ -14,4 +14,6 @@ public interface HousingRateService {
     void deleteHousingRate(Long housingRateId);
 
     Optional<HousingRate> getHousingRateById(Long housingRateId);
+
+    void AssignHousingRateToHousing(Long idHousing, Long idHousingRate);
 }
