@@ -64,7 +64,7 @@ public class Person {
     private Set<Booking> bookings = new HashSet<>();
 
     @JsonIgnore
-    @OneToMany()
+    @OneToMany(cascade = CascadeType.ALL)
     private Set<Message> Message = new HashSet<>();
 
     public Person(String firstName, String lastName, String phoneNumber, String email, String login, String password, String picture, Date birthDate) {

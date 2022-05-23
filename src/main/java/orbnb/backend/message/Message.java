@@ -31,7 +31,7 @@ public class Message {
     @Column(name="time")
     private Date time;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name="id_person", referencedColumnName = "id")
     private Person person;
 
