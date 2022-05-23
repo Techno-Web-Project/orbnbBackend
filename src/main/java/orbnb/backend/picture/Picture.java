@@ -17,4 +17,9 @@ public class Picture {
     private Long pictureId;
 
     private String title;
+
+    @Column(name = "file_localisation")
+    private String fileLocalisation;
+
+    private Long housingId;
 }

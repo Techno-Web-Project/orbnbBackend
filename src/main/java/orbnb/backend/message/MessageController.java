@@ -48,16 +48,4 @@ public class MessageController {
         this.messageService.deleteMessage(id_message);
     }
 
-    @PutMapping("/{id_message}/assignedMessageToPerson/{id_person}")
-    Message assignedMessageToPerson(
-            @PathVariable Long id_message,
-            @PathVariable Long id_person
-    ) {
-
-        Message message = messageService.getMessageById(id_message).get();
-        Person person = personService.getPersonById(id_person).get();
-        message.setPerson(person);
-        return messageService.saveMessage(message);
-    }
-
 }

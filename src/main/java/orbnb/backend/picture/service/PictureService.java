@@ -14,4 +14,6 @@ public interface PictureService {
     void deletePicture(Long pictureId);
 
     Optional<Picture> getPictureById(Long pictureId);
+
+    void assignPictureToHousing(Long housingId, Long pictureId);
 }

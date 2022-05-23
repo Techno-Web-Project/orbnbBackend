@@ -47,6 +47,5 @@ public class PersonRateServiceImpl implements PersonRateService {
         personRate.setPersonId(idPerson);
         personRepository.save(person);
 
-
     }
 }

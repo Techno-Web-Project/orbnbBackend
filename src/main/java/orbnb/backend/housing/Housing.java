@@ -8,6 +8,7 @@ import orbnb.backend.housing.enumeration.HousingType;
 import orbnb.backend.housingRate.HousingRate;
 import orbnb.backend.person.Person;
 import orbnb.backend.personRate.PersonRate;
+import orbnb.backend.picture.Picture;
 import orbnb.backend.service.Service;
 
 import javax.persistence.*;
@@ -48,6 +49,11 @@ public class Housing {
     @ManyToOne
     @JoinColumn(name = "id_person")
     private Person person;
+
+    @OneToMany
+    @JoinTable(name = "housing_pictures", joinColumns = {@JoinColumn(name = "housing_id")},
+            inverseJoinColumns = {@JoinColumn(name = "picture_id")})
+    private Set<Picture> housingPictures;
 
     @JsonIgnore
     @OneToMany(mappedBy = "housing")

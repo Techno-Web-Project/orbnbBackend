@@ -17,8 +17,8 @@ public class Message {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
-    @Column(name="id_message")
-    private Long id_message;
+    @Column(name="idmessage")
+    private Long idmessage;
 
     @Column(name="text")
     private String text;
@@ -31,15 +31,7 @@ public class Message {
     @Column(name="time")
     private Date time;
 
-    @ManyToOne()
-    @JoinColumn(name="id_person", referencedColumnName = "id")
-    private Person person;
+    @Column(name="idDestinataire")
+    private Long idDestinataire;
 
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
-    }
 }
