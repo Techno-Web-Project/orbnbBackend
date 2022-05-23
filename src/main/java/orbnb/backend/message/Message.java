@@ -17,8 +17,8 @@ public class Message {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
-    @Column(name="id_message")
-    private Long id_message;
+    @Column(name="idmessage")
+    private Long idmessage;
 
     @Column(name="text")
     private String text;
@@ -30,5 +30,8 @@ public class Message {
     @Temporal(TemporalType.TIME)
     @Column(name="time")
     private Date time;
+
+    @Column(name="idDestinataire")
+    private Long idDestinataire;
 
 }
