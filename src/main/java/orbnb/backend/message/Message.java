@@ -2,6 +2,8 @@ package orbnb.backend.message;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import orbnb.backend.housing.Housing;
+import orbnb.backend.person.Person;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -29,8 +31,15 @@ public class Message {
     @Column(name="time")
     private Date time;
 
-/*    @OneToMany(mappedBy = "person")
-    private List<Message> messages;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="id_person", referencedColumnName = "id")
+    private Person person;
 
- */
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
 }

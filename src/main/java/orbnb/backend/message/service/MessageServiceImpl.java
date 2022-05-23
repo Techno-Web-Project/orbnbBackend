@@ -29,4 +29,8 @@ public class MessageServiceImpl implements MessageService {
     public Optional<Message> getMessageById(Long id_message){
         return this.messageRepository.findById(id_message);
     }
+
+    public Message saveMessage(Message message){
+        return messageRepository.save(message);
+    }
 }
