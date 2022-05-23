@@ -1,10 +1,13 @@
 package orbnb.backend.housing;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import orbnb.backend.booking.Booking;
 import orbnb.backend.housing.enumeration.HousingType;
 import orbnb.backend.person.Person;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -41,6 +44,10 @@ public class Housing {
     @ManyToOne
     @JoinColumn(name = "id_person")
     private Person person;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "housing")
+    private Set<Booking> bookings = new HashSet<>();
 //
 //    @ManyToMany
 //    Set<Service> housingLinkedServices;

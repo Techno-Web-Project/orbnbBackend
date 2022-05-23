@@ -57,21 +57,11 @@ public class Person {
             inverseJoinColumns = {@JoinColumn(name = "housing_id")})
     private Set<Housing> housingsOwned;
 
-/*
-    @OneToMany
-    @JoinTable(name = "person_booking_relation", joinColumns = {@JoinColumn(name = "person_id")},
-            inverseJoinColumns = {@JoinColumn(name = "id_booking")})
-    private Set<Booking> personBooking = new HashSet<>();
-
- */
 
     @JsonIgnore
     @OneToMany(mappedBy = "person")
     private Set<Booking> bookings = new HashSet<>();
 
-    public Set<Booking> getBookings() {
-        return bookings;
-    }
 
     public Person(String firstName, String lastName, String phoneNumber, String email, String login, String password, String picture, Date birthDate) {
         this.firstName = firstName;
@@ -82,6 +72,11 @@ public class Person {
         this.password = password;
         this.picture = picture;
         this.birthDate = birthDate;
+    }
+
+
+    public Set<Booking> getBookings() {
+        return bookings;
     }
 
 }

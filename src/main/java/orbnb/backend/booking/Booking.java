@@ -40,6 +40,11 @@ public class Booking implements Serializable {
     @JoinColumn(name="id_person", referencedColumnName = "id")
     private Person person;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="id_housing", referencedColumnName = "id")
+    private Housing housing;
+
+
     public Person getPerson() {
         return person;
     }
@@ -48,8 +53,11 @@ public class Booking implements Serializable {
         this.person = person;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "id_housing")
-    private Housing housing;
+    public Housing getHousing() {
+        return housing;
+    }
 
+    public void setHousing(Housing housing) {
+        this.housing = housing;
+    }
 }
