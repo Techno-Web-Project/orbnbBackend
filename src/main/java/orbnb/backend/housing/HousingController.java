@@ -2,6 +2,7 @@ package orbnb.backend.housing;
 
 import orbnb.backend.constraint.service.ConstraintsService;
 import orbnb.backend.housing.service.HousingService;
+import orbnb.backend.picture.service.PictureService;
 import orbnb.backend.service.service.ServiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,6 +24,9 @@ public class HousingController {
 
     @Autowired
     private ConstraintsService constraintsService;
+
+    @Autowired
+    private PictureService pictureService;
 
     @GetMapping("/getAllHousings")
     @ResponseBody
@@ -53,6 +57,11 @@ public class HousingController {
     @PutMapping("/assignconstraint/{housingId}/{constraintId}")
     public void assignConstraintToHousing(@PathVariable("housingId") Long HousingId, @PathVariable("constraintId") Long ConstraintId){
         this.constraintsService.AssignConstraintToHousing(HousingId,ConstraintId);
+    }
+
+    @PutMapping("/assignPictureToHousing/{housingId}/{pictureId}")
+    public void assignPictureToHousing(@PathVariable("housingId") Long housingId, @PathVariable("pictureId") Long pictureId){
+        this.pictureService.assignPictureToHousing(housingId, pictureId);
     }
 
 }
