@@ -12,5 +12,5 @@ import java.util.List;
 
 @Repository
 public interface MessageRepository extends JpaRepository<Message,Long> {
-
+    Message findMessageByIdmessage(Long id);
 }

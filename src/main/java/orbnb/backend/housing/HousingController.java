@@ -28,6 +28,8 @@ public class HousingController {
 
     @Autowired
     private HousingRateService housingRateService;
+
+    @Autowired
     private PictureService pictureService;
 
     @GetMapping("/getAllHousings")
@@ -62,11 +64,14 @@ public class HousingController {
     }
 
     @PutMapping("/assignhousingrate/{housingId}/{housingrateid}")
-    public void assignHousingRateToHousing(@PathVariable("housingId") Long HousingId, @PathVariable("housingrateid")Long HousingrateId){
-        this.housingRateService.AssignHousingRateToHousing(HousingId,HousingrateId);
-    @PutMapping("/assignPictureToHousing/{housingId}/{pictureId}")
-    public void assignPictureToHousing(@PathVariable("housingId") Long housingId, @PathVariable("pictureId") Long pictureId){
-        this.pictureService.assignPictureToHousing(housingId, pictureId);
+    public void assignHousingRateToHousing(@PathVariable("housingId") Long HousingId, @PathVariable("housingrateid")Long HousingrateId) {
+        this.housingRateService.AssignHousingRateToHousing(HousingId, HousingrateId);
     }
+
+    @PutMapping("/assignpicture/{housingId}/{pictureId}")
+    public void assignPictureToHousing(@PathVariable("housingId") Long housingid, @PathVariable("pictureId") Long pictureid){
+            this.pictureService.assignPictureToHousing(housingid,pictureid);
+        }
+
 
 }
