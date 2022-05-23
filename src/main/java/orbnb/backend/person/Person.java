@@ -48,7 +48,7 @@ public class Person {
     @Column(name = "birth_date")
     private Date birthDate;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "T_PERSON_PERSONRATE", joinColumns = {@JoinColumn(name = "PERSON_ID")},
             inverseJoinColumns = {@JoinColumn(name = "PERSONRATE_ID")})
     private Set<PersonRate> personRates;
