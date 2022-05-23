@@ -15,6 +15,5 @@ public interface MessageService {
 
     public Optional<Message> getMessageById(Long id_message);
 
-    void assignMessageToPerson(Long id_message, Long id_person);
-
+    Message saveMessage(Message message);
 }

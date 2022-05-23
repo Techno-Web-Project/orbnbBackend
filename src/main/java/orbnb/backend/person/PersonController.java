@@ -1,12 +1,10 @@
 package orbnb.backend.person;
 
 import orbnb.backend.housing.service.HousingService;
-import orbnb.backend.message.service.MessageService;
 import orbnb.backend.person.service.PersonService;
 import orbnb.backend.personRate.service.PersonRateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,9 +24,6 @@ public class PersonController {
 
     @Autowired
     private HousingService housingService;
-
-    @Autowired
-    private MessageService messageService;
 
 
     @GetMapping("getAllPersons")
@@ -64,10 +59,5 @@ public class PersonController {
     @PutMapping("assignHousing/{personId}/{housingId}")
     public void assignHousingToPerson(@PathVariable("personId") Long personId, @PathVariable("housingId") Long housingId) {
         this.housingService.assignHousingToPerson(personId, housingId);
-    }
-
-    @PutMapping("assignMessageToPerson/{personId}/{messageId}")
-    public void assignMessageToPerson(@PathVariable("personId") Long personId, @PathVariable("messageId") Long messageId){
-        this.messageService.assignMessageToPerson(personId, messageId);
     }
 }

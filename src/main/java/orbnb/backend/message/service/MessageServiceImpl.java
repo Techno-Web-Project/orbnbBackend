@@ -2,10 +2,6 @@ package orbnb.backend.message.service;
 
 import orbnb.backend.message.Message;
 import orbnb.backend.message.MessageRepository;
-import orbnb.backend.person.Person;
-import orbnb.backend.person.PersonRepository;
-import orbnb.backend.person.service.PersonService;
-import orbnb.backend.personRate.PersonRate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,9 +13,6 @@ public class MessageServiceImpl implements MessageService {
 
     @Autowired
     MessageRepository messageRepository;
-
-    @Autowired
-    PersonRepository personRepository;
 
     public List<Message> getAllMessages(){
         return this.messageRepository.findAll();
@@ -37,13 +30,7 @@ public class MessageServiceImpl implements MessageService {
         return this.messageRepository.findById(id_message);
     }
 
-    @Override
-    public void assignMessageToPerson(Long id_message, Long id_person) {
-        Message message = this.messageRepository.findMessageById_message(id_message);
-        Person person = this.personRepository.findPersonById(id_person);
-        person.getMessage().add(message);
-        message.setId_message(id_message);
-        personRepository.save(person);
+    public Message saveMessage(Message message){
+        return messageRepository.save(message);
     }
-
 }
