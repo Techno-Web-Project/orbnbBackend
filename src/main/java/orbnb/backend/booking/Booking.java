@@ -36,11 +36,11 @@ public class Booking implements Serializable {
     @Column(name = "booking_status")
     private BookingStatus bookingStatus;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name="id_person", referencedColumnName = "id")
     private Person person;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name="id_housing", referencedColumnName = "id")
     private Housing housing;
 

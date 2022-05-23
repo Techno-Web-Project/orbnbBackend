@@ -60,7 +60,7 @@ public class Person {
 
 
     @JsonIgnore
-    @OneToMany(mappedBy = "person")
+    @OneToMany()
     private Set<Booking> bookings = new HashSet<>();
 
     @JsonIgnore
