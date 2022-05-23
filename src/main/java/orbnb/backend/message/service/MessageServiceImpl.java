@@ -30,7 +30,4 @@ public class MessageServiceImpl implements MessageService {
         return this.messageRepository.findById(id_message);
     }
 
-    public Message saveMessage(Message message){
-        return messageRepository.save(message);
-    }
 }

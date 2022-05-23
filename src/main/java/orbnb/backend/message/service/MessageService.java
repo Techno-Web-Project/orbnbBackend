@@ -15,5 +15,4 @@ public interface MessageService {
 
     public Optional<Message> getMessageById(Long id_message);
 
-    Message saveMessage(Message message);
 }
