@@ -5,6 +5,7 @@ import lombok.*;
 import orbnb.backend.booking.Booking;
 import orbnb.backend.housing.enumeration.HousingType;
 import orbnb.backend.person.Person;
+import orbnb.backend.service.Service;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -48,6 +49,11 @@ public class Housing {
     @JsonIgnore
     @OneToMany(mappedBy = "housing")
     private Set<Booking> bookings = new HashSet<>();
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "T_Housing_Service", joinColumns = {@JoinColumn(name="HOUSING_ID")},
+    inverseJoinColumns = {@JoinColumn(name = "SERVICE_ID")})
+    private Set<Service> Services;
 
     public Set<Booking> getBookings() {
         return bookings;

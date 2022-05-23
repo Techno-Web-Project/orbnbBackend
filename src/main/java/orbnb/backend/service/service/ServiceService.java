@@ -16,4 +16,6 @@ public interface ServiceService {
     void deleteService(Long serviceId) ;
 
     Optional<Service> getServiceById(Long serviceId) ;
+
+    void assignServiceToHousing(Long HousingId, Long ServiceId);
 }
