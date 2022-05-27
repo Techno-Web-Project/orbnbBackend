@@ -44,8 +44,15 @@ public class HousingServiceImpl implements HousingService {
     @Override
     public void assignHousingToPerson(Long personId, Long housingId) {
         Person person = this.personRepository.findPersonById(personId);
-        person.getHousingsOwned().add(this.housingRepository.findHousingsById(housingId));
+        Housing housing = this.housingRepository.findHousingsById(housingId);
+        person.getHousingsOwned().add(housing);
+        housing.setPersonId(personId);
         this.personRepository.save(person);
     }
+
+     /*@Override
+   public Housing modifyHousing(Housing housing, Long idHousing){
+        
+    }*/
 
 }

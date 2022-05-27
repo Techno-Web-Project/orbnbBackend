@@ -48,9 +48,7 @@ public class Housing {
     @Column(name="number_of_bed")
     private Integer numberOfBed;
 
-    @ManyToOne
-    @JoinColumn(name = "id_person")
-    private Person person;
+    private Long PersonId;
 
     @OneToMany
     @JoinTable(name = "housing_pictures", joinColumns = {@JoinColumn(name = "housing_id")},

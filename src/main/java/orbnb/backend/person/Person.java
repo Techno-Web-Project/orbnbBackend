@@ -54,8 +54,8 @@ public class Person {
     private Set<PersonRate> personRates;
 
     @OneToMany
-    @JoinTable(name = "housings_owned_relation", joinColumns = {@JoinColumn(name = "person_id")},
-            inverseJoinColumns = {@JoinColumn(name = "housing_id")})
+    @JoinTable(name = "T_PERSON_HOUSING", joinColumns = {@JoinColumn(name = "PERSON_ID")},
+            inverseJoinColumns = {@JoinColumn(name = "HOUSING_ID")})
     private Set<Housing> housingsOwned;
 
 

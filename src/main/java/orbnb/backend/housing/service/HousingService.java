@@ -17,4 +17,6 @@ public interface HousingService {
 
     void assignHousingToPerson(Long personId, Long housingId);
 
+   // Housing modifyHousing(Housing housing, Long idHousing);
+
 }
