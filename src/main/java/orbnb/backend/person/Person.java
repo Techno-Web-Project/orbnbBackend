@@ -53,7 +53,7 @@ public class Person {
             inverseJoinColumns = {@JoinColumn(name = "PERSONRATE_ID")})
     private Set<PersonRate> personRates;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "T_PERSON_HOUSING", joinColumns = {@JoinColumn(name = "PERSON_ID")},
             inverseJoinColumns = {@JoinColumn(name = "HOUSING_ID")})
     private Set<Housing> housingsOwned;
