@@ -36,28 +36,4 @@ public class Booking implements Serializable {
     @Column(name = "booking_status")
     private BookingStatus bookingStatus;
 
-    @ManyToOne()
-    @JoinColumn(name="id_person", referencedColumnName = "id")
-    private Person person;
-
-    @ManyToOne()
-    @JoinColumn(name="id_housing", referencedColumnName = "id")
-    private Housing housing;
-
-
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
-    }
-
-    public Housing getHousing() {
-        return housing;
-    }
-
-    public void setHousing(Housing housing) {
-        this.housing = housing;
-    }
 }

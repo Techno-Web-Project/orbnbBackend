@@ -17,5 +17,5 @@ public interface BookingService {
 
     Optional<Booking> getBookingById(Long bookingId) ;
 
-    Booking saveBooking(Booking booking);
+    void assignBookingToPerson(Long idBooking, Long idPerson);
 }
