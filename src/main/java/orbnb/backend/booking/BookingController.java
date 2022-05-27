@@ -21,11 +21,6 @@ public class BookingController {
     @Autowired
     private BookingService bookingService;
 
-    @Autowired
-    private PersonService personService;
-
-    @Autowired
-    private HousingService housingService;
 
     @GetMapping("/getAllBookings")
     public ResponseEntity<List<Booking>> getBookings() {

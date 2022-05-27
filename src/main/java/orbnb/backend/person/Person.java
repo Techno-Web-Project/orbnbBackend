@@ -67,7 +67,7 @@ public class Person {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "person_have_booking", joinColumns = {@JoinColumn(name = "id_person")},
             inverseJoinColumns = {@JoinColumn(name = "id_booking")})
-    private Set<Booking> bookings;
+    private Set<Booking> booking;
 
     public Person(String firstName, String lastName, String phoneNumber, String email, String login, String password, String picture, Date birthDate) {
         this.firstName = firstName;

@@ -18,4 +18,6 @@ public interface BookingService {
     Optional<Booking> getBookingById(Long bookingId) ;
 
     void assignBookingToPerson(Long idBooking, Long idPerson);
+
+    void assignBookingToHousing(Long idBooking, Long idHousing);
 }

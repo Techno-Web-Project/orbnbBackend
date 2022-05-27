@@ -1,5 +1,6 @@
 package orbnb.backend.housing;
 
+import orbnb.backend.booking.service.BookingService;
 import orbnb.backend.constraint.service.ConstraintsService;
 import orbnb.backend.customConstraint.service.CustomConstraintService;
 import orbnb.backend.customService.service.CustomServiceService;
@@ -35,6 +36,9 @@ public class HousingController {
 
     @Autowired
     private CustomServiceService customServiceService;
+
+    @Autowired
+    private BookingService bookingService;
 
     @GetMapping("/getAllHousings")
     @ResponseBody
@@ -80,6 +84,11 @@ public class HousingController {
     @PutMapping("/assignCustomServiceToHousing/{housingId}/{customServiceId}")
     public void assignCustomServiceToHousing(@PathVariable("housingId") Long housingId, @PathVariable("customServiceId") Long customServiceId){
         this.customServiceService.assignCustomServiceToHousing(housingId, customServiceId);
+    }
+
+    @PutMapping("/assignBookingToHousing/{housingId}/{bookingId}")
+    public void assignBookingToHousing(@PathVariable("housingId") Long housingId, @PathVariable("bookingId") Long bookingId){
+        this.bookingService.assignBookingToHousing(housingId,bookingId);
     }
 
 

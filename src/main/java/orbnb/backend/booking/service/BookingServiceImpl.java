@@ -2,6 +2,8 @@ package orbnb.backend.booking.service;
 
 import orbnb.backend.booking.Booking;
 import orbnb.backend.booking.BookingRepository;
+import orbnb.backend.housing.Housing;
+import orbnb.backend.housing.HousingRepository;
 import orbnb.backend.person.Person;
 import orbnb.backend.person.PersonRepository;
 import orbnb.backend.personRate.PersonRate;
@@ -19,6 +21,9 @@ public class BookingServiceImpl implements BookingService{
 
     @Autowired
     private PersonRepository personRepository;
+
+    @Autowired
+    private HousingRepository housingRepository;
 
     public List<Booking> getAllBookings(){
         return this.bookingRepository.findAll();
@@ -41,8 +46,17 @@ public class BookingServiceImpl implements BookingService{
     public void assignBookingToPerson(Long idBooking, Long idPerson) {
         Booking booking = this.bookingRepository.findBookingByBookingId(idBooking);
         Person person =  this.personRepository.findPersonById(idPerson);
-        person.getBookings().add(booking);
-        booking.setBookingId(idPerson);
+        person.getBooking().add(booking);
+        booking.setBookingId(idBooking);
         personRepository.save(person);
+    }
+
+    @Override
+    public void assignBookingToHousing(Long idBooking, Long idHousing) {
+        Booking booking = this.bookingRepository.findBookingByBookingId(idBooking);
+        Housing housing = this.housingRepository.findHousingsById(idHousing);
+        housing.getBooking().add(booking);
+        booking.setBookingId(idBooking);
+        housingRepository.save(housing);
     }
 }
