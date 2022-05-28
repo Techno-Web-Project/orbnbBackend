@@ -35,11 +35,22 @@ public class HousingRateServiceImpl implements HousingRateService {
         return this.housingRateRepository.findById(housingRateId);
     }
 
-    public void AssignHousingRateToHousing(Long idHousing, Long idHousingRate){
+    public void AssignHousingRateToHousing(Long idHousing, Long idHousingRate) {
         HousingRate housingRate = housingRateRepository.findHousingRateByHousingRateId(idHousingRate);
         Housing housing = housingRepository.findHousingsById(idHousing);
         housing.getHousingRates().add(housingRate);
-        housingRate.setHousingId(idHousing);
+        housingRate.setNotedHousingId(idHousing);
         housingRepository.save(housing);
+    }
+
+    @Override
+    public Double getAverageNoteByNotedHousingId(Long notedHousingId) {
+        List<HousingRate> housingRateList = this.housingRateRepository.findHousingRatesByNotedHousingId(notedHousingId);
+        Double averageNote = 0.0;
+        for (HousingRate housingRate : housingRateList) {
+            averageNote += housingRate.getRate();
+        }
+        averageNote = averageNote / housingRateList.size();
+        return averageNote;
     }
 }

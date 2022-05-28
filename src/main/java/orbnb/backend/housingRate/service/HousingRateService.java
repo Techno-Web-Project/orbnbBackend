@@ -16,4 +16,6 @@ public interface HousingRateService {
     Optional<HousingRate> getHousingRateById(Long housingRateId);
 
     void AssignHousingRateToHousing(Long idHousing, Long idHousingRate);
+
+    Double getAverageNoteByNotedHousingId(Long notedHousingId);
 }

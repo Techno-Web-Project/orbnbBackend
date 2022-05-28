@@ -22,9 +22,14 @@ public class HousingRateController {
         return new ResponseEntity<>(this.housingRateService.getAllHousingRate(), HttpStatus.OK);
     }
 
-    @GetMapping("getHousingRateById/{housingRateId}")
+    @GetMapping("/getHousingRateById/{housingRateId}")
     public ResponseEntity<Optional<HousingRate>> getHousingRate(@PathVariable("housingRateId") Long housingRateId) {
         return new ResponseEntity<>(this.housingRateService.getHousingRateById(housingRateId), HttpStatus.OK);
+    }
+
+    @GetMapping("/getAverageNoteByNotedHousingId/{notedHousingId}")
+    public ResponseEntity<Double> getAverageRateByNotedHousingId(@PathVariable("notedHousingId") Long notedHousingId) {
+        return new ResponseEntity<>(this.housingRateService.getAverageNoteByNotedHousingId(notedHousingId), HttpStatus.OK);
     }
 
     @PostMapping("/addHousingRate")
