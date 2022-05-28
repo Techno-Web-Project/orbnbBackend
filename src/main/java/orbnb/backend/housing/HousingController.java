@@ -4,6 +4,8 @@ import orbnb.backend.constraint.service.ConstraintsService;
 import orbnb.backend.customConstraint.service.CustomConstraintService;
 import orbnb.backend.customService.service.CustomServiceService;
 import orbnb.backend.housing.service.HousingService;
+import orbnb.backend.housingRate.HousingRate;
+import orbnb.backend.housingRate.service.HousingRateService;
 import orbnb.backend.picture.service.PictureService;
 import orbnb.backend.service.service.ServiceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +38,15 @@ public class HousingController {
     @Autowired
     private CustomServiceService customServiceService;
 
+<<<<<<< Updated upstream
+=======
+    @Autowired
+    private BookingService bookingService;
+
+    @Autowired
+    private HousingRateService housingRateService;
+
+>>>>>>> Stashed changes
     @GetMapping("/getAllHousings")
     @ResponseBody
     public ResponseEntity<List<Housing>> getHousings() {
@@ -82,5 +93,17 @@ public class HousingController {
         this.customServiceService.assignCustomServiceToHousing(housingId, customServiceId);
     }
 
+<<<<<<< Updated upstream
+=======
+    @PutMapping("/assignBookingToHousing/{housingId}/{bookingId}")
+    public void assignBookingToHousing(@PathVariable("bookingId") Long bookingId, @PathVariable("housingId") Long housingId){
+        this.bookingService.assignBookingToHousing(bookingId,housingId);
+    }
+
+    @PutMapping("/assignhousingrate/{housingId}/{housingrateid}")
+    public void assignHousingRateToHousing(@PathVariable("housingId") Long HousingId, @PathVariable("housingrateid")Long HousingrateId) {
+        this.housingRateService.AssignHousingRateToHousing(HousingId, HousingrateId);
+    }
+>>>>>>> Stashed changes
 
 }
