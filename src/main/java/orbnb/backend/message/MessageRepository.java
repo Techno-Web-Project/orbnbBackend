@@ -11,6 +11,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface MessageRepository extends JpaRepository<Message,Long> {
-    Message findMessageByIdmessage(Long id);
+public interface MessageRepository extends JpaRepository<Message, Long> {
+    Message findMessageByMessageId(Long id);
 }

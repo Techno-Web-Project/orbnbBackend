@@ -1,6 +1,5 @@
 package orbnb.backend.person;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +11,6 @@ import orbnb.backend.personRate.PersonRate;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -60,9 +58,14 @@ public class Person {
 
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "person_owner_message", joinColumns = {@JoinColumn(name = "id_person")},
+    @JoinTable(name = "person_send_messages", joinColumns = {@JoinColumn(name = "id_person")},
             inverseJoinColumns = {@JoinColumn(name = "id_message")})
-    private Set<Message> Message;
+    private Set<Message> messagesSend;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "person_received_messages", joinColumns = {@JoinColumn(name = "id_person")},
+            inverseJoinColumns = {@JoinColumn(name = "id_message")})
+    private Set<Message> messageReceived;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "person_have_booking", joinColumns = {@JoinColumn(name = "id_person")},

@@ -43,7 +43,7 @@ public class ConstraintsServiceImpl implements ConstraintsService {
     public void AssignConstraintToHousing(Long HousingId, Long ConstraintId){
         Housing housing = housingRepository.findHousingsById(HousingId);
         Constraints constraints = constraintsRepository.findConstraintsByConstraintsId(ConstraintId);
-        housing.getConstraints().add(constraints);
+        housing.getLinkedConstraints().add(constraints);
         housingRepository.save(housing);
     }
 }

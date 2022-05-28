@@ -41,7 +41,7 @@ public class ServiceServiceImpl implements ServiceService{
     public void assignServiceToHousing(Long HousingId, Long ServiceId){
         Housing housing = housingRepository.findHousingsById(HousingId);
         orbnb.backend.service.Service service = serviceRepository.findServiceByServiceId(ServiceId);
-        housing.getServices().add(service);
+        housing.getLinkedServices().add(service);
         housingRepository.save(housing);
 
     }

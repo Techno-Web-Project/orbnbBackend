@@ -7,14 +7,16 @@ import java.util.Optional;
 
 public interface MessageService {
 
-    public List<Message> getAllMessages();
+    List<Message> getAllMessages();
 
-    public Message addMessage(Message message);
+    Message addMessage(Message message);
 
-    public void deleteMessage(Long id_message);
+    void deleteMessage(Long id_message);
 
-    public Optional<Message> getMessageById(Long id_message);
+    Optional<Message> getMessageById(Long id_message);
 
-    void assignMessageToPerson(Long idMessage, Long idPerson);
+    void assignMessageSendToPerson(Long idMessage, Long idPerson);
+
+    void assignMessageReceivedToPerson(Long idMessage, Long idPerson);
 
 }
