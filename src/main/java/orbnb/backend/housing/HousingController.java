@@ -90,6 +90,4 @@ public class HousingController {
     public void assignBookingToHousing(@PathVariable("bookingId") Long bookingId, @PathVariable("housingId") Long housingId){
         this.bookingService.assignBookingToHousing(bookingId,housingId);
     }
-
-
 }
