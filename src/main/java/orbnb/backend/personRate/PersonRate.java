@@ -20,7 +20,7 @@ public class PersonRate {
 
     private String comment;
 
-    private Long PersonId;
+    private Long notedPersonId;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "rating_date")

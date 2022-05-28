@@ -44,8 +44,19 @@ public class PersonRateServiceImpl implements PersonRateService {
         PersonRate personRate = this.personRateRepository.findPersonRateByPersonRateId(idPersonRate);
         Person person = this.personRepository.findPersonById(idPerson);
         person.getPersonRates().add(personRate);
-        personRate.setPersonId(idPerson);
+        personRate.setNotedPersonId(idPerson);
         personRepository.save(person);
 
+    }
+
+    @Override
+    public Double getPersonAverageNote(Long notedPersonId) {
+        List<PersonRate> personRatesList = this.personRateRepository.findPersonRatesByNotedPersonId(notedPersonId);
+        Double averageNote = 0.0;
+        for(PersonRate personRate : personRatesList){
+            averageNote+=personRate.getRate();
+        }
+        averageNote = averageNote / personRatesList.size();
+        return averageNote;
     }
 }

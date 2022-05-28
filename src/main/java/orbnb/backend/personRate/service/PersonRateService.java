@@ -17,5 +17,8 @@ public interface PersonRateService {
     Optional<PersonRate> getPersonRateById(Long personRateId);
 
     void assignRateToPerson(Long idPersonrate, Long idPerson);
+
+    Double getPersonAverageNote(Long notedPersonId);
+
 }
 

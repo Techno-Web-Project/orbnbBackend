@@ -27,6 +27,11 @@ public class PersonRateController {
         return new ResponseEntity<>(this.personRateService.getPersonRateById(personRateId), HttpStatus.OK);
     }
 
+    @GetMapping("/getPersonAverageNote/{notedPersonId}")
+    public ResponseEntity<Double> getPersonAverageNote(@PathVariable("notedPersonId") Long notedPersonId){
+        return new ResponseEntity<>(this.personRateService.getPersonAverageNote(notedPersonId), HttpStatus.OK);
+    }
+
     @PostMapping("/addPersonRate")
     public ResponseEntity<PersonRate> addPersonRate(@RequestBody PersonRate personRate) {
         return new ResponseEntity<>(this.personRateService.addPersonRate(personRate), HttpStatus.CREATED);
