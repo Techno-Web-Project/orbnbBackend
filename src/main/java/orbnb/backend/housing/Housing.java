@@ -86,6 +86,6 @@ public class Housing {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "housing_booked", joinColumns = {@JoinColumn(name = "housing_id")},
             inverseJoinColumns = {@JoinColumn(name = "id_booking")})
-    private Set<Booking> booking;
+    private Set<Booking> bookings;
 
 }

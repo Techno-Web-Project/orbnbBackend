@@ -87,8 +87,8 @@ public class HousingController {
     }
 
     @PutMapping("/assignBookingToHousing/{housingId}/{bookingId}")
-    public void assignBookingToHousing(@PathVariable("housingId") Long housingId, @PathVariable("bookingId") Long bookingId){
-        this.bookingService.assignBookingToHousing(housingId,bookingId);
+    public void assignBookingToHousing(@PathVariable("bookingId") Long bookingId, @PathVariable("housingId") Long housingId){
+        this.bookingService.assignBookingToHousing(bookingId,housingId);
     }
 
 

@@ -55,7 +55,7 @@ public class BookingServiceImpl implements BookingService{
     public void assignBookingToHousing(Long idBooking, Long idHousing) {
         Booking booking = this.bookingRepository.findBookingByBookingId(idBooking);
         Housing housing = this.housingRepository.findHousingsById(idHousing);
-        housing.getBooking().add(booking);
+        housing.getBookings().add(booking);
         booking.setBookingId(idBooking);
         housingRepository.save(housing);
     }
