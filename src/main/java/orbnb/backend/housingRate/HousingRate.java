@@ -20,7 +20,7 @@ public class HousingRate {
 
     private String comment;
 
-    private Long HousingId;
+    private Long notedHousingId;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "rating_date")

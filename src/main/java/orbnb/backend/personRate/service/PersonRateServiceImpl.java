@@ -40,7 +40,7 @@ public class PersonRateServiceImpl implements PersonRateService {
     }
 
     @Override
-    public void assignRateToPerson(Long idPersonRate, Long idPerson){
+    public void assignRateToPerson(Long idPersonRate, Long idPerson) {
         PersonRate personRate = this.personRateRepository.findPersonRateByPersonRateId(idPersonRate);
         Person person = this.personRepository.findPersonById(idPerson);
         person.getPersonRates().add(personRate);
@@ -53,8 +53,8 @@ public class PersonRateServiceImpl implements PersonRateService {
     public Double getPersonAverageNote(Long notedPersonId) {
         List<PersonRate> personRatesList = this.personRateRepository.findPersonRatesByNotedPersonId(notedPersonId);
         Double averageNote = 0.0;
-        for(PersonRate personRate : personRatesList){
-            averageNote+=personRate.getRate();
+        for (PersonRate personRate : personRatesList) {
+            averageNote += personRate.getRate();
         }
         averageNote = averageNote / personRatesList.size();
         return averageNote;

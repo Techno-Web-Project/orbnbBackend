@@ -28,7 +28,7 @@ public class PersonRateController {
     }
 
     @GetMapping("/getPersonAverageNote/{notedPersonId}")
-    public ResponseEntity<Double> getPersonAverageNote(@PathVariable("notedPersonId") Long notedPersonId){
+    public ResponseEntity<Double> getPersonAverageNote(@PathVariable("notedPersonId") Long notedPersonId) {
         return new ResponseEntity<>(this.personRateService.getPersonAverageNote(notedPersonId), HttpStatus.OK);
     }
 
