@@ -20,4 +20,8 @@ public class Service implements Serializable {
 
     private String logo;
 
+    public Service(String description, String logo) {
+        this.description = description;
+        this.logo = logo;
+    }
 }

@@ -18,4 +18,9 @@ public class Constraints {
     private String description;
 
     private String logo;
+
+    public Constraints(String description, String logo) {
+        this.description = description;
+        this.logo = logo;
+    }
 }
