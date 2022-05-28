@@ -62,7 +62,7 @@ public class BookingServiceImpl implements BookingService{
     }
 
     @Override
-    public List<Housing> isHousingFree(Date startDate, Date endDate) {
+    public boolean isHousingBooked(Date startDate, Date endDate) {
         return this.bookingRepository.findBookingByBookingDateBetween(startDate,endDate);
     }
 }

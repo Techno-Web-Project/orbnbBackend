@@ -11,7 +11,7 @@ import java.util.List;
 public interface BookingRepository extends JpaRepository<Booking, Long> {
     Booking findBookingByBookingId(Long id);
 
-    List<Housing> findBookingByBookingDateBetween(
+    boolean findBookingByBookingDateBetween(
             Date booking_date_start,
             Date booking_date_end
     );

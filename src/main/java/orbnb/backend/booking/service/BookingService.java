@@ -23,6 +23,6 @@ public interface BookingService {
 
     void assignBookingToHousing(Long idBooking, Long idHousing);
 
-    List<Housing> isHousingFree(Date startDate, Date endDate);
+    boolean isHousingBooked(Date startDate, Date endDate);
 
 }

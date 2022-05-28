@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,4 +43,11 @@ public class BookingController {
         this.bookingService.deleteBooking(bookingId);
     }
 
+    @GetMapping("/isHousingFree")
+    public boolean isHousingFree(@PathVariable ("startDate") Date startDate, @PathVariable ("endDate") Date endDate){
+        if(bookingService.isHousingBooked(startDate, endDate)){
+            return false;
+        }
+        return true;
+    }
 }
