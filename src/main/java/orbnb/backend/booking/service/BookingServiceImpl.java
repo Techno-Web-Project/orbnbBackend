@@ -10,6 +10,7 @@ import orbnb.backend.personRate.PersonRate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -58,5 +59,10 @@ public class BookingServiceImpl implements BookingService{
         housing.getBookings().add(booking);
         booking.setBookingId(idBooking);
         housingRepository.save(housing);
+    }
+
+    @Override
+    public List<Housing> isHousingFree(Date startDate, Date endDate) {
+        return this.bookingRepository.findBookingByBookingDateBetween(startDate,endDate);
     }
 }
