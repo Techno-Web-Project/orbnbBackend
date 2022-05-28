@@ -21,11 +21,6 @@ public class BookingController {
     @Autowired
     private BookingService bookingService;
 
-    @Autowired
-    private PersonService personService;
-
-    @Autowired
-    private HousingService housingService;
 
     @GetMapping("/getAllBookings")
     public ResponseEntity<List<Booking>> getBookings() {
@@ -45,28 +40,6 @@ public class BookingController {
     @DeleteMapping("/deleteBooking/{bookingId}")
     public void removeBooking(@PathVariable("bookingId") Long bookingId) {
         this.bookingService.deleteBooking(bookingId);
-    }
-
-    @PutMapping("/{id_booking}/assignedBookingToPerson/{id_person}")
-    Booking assignedBookingToPerson(
-            @PathVariable Long id_person,
-            @PathVariable Long id_booking
-    ) {
-        Booking booking = bookingService.getBookingById(id_booking).get();
-        Person person = personService.getPersonById(id_person).get();
-        booking.setPerson(person);
-        return bookingService.saveBooking(booking);
-    }
-
-    @PutMapping("/{id_booking}/assignedBookingToHousing/{id_housing}")
-    Booking assignedBookingToHousing(
-            @PathVariable Long id_housing,
-            @PathVariable Long id_booking
-    ) {
-        Booking booking = bookingService.getBookingById(id_booking).get();
-        Housing housing = housingService.getHousingById(id_housing).get();
-        booking.setHousing(housing);
-        return bookingService.saveBooking(booking);
     }
 
 }

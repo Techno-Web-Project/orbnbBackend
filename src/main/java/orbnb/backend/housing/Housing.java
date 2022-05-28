@@ -65,9 +65,7 @@ public class Housing {
             inverseJoinColumns = {@JoinColumn(name = "custom_constraint_id")})
     private Set<CustomConstraint> customConstraints;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "housing")
-    private Set<Booking> bookings = new HashSet<>();
+
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "T_Housing_Service", joinColumns = {@JoinColumn(name="HOUSING_ID")},
@@ -84,7 +82,10 @@ public class Housing {
             inverseJoinColumns = {@JoinColumn(name = "HOUSINGRATE_ID")})
     private Set<HousingRate> housingRates;
 
-    public Set<Booking> getBookings() {
-        return bookings;
-    }
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "housing_booked", joinColumns = {@JoinColumn(name = "housing_id")},
+            inverseJoinColumns = {@JoinColumn(name = "id_booking")})
+    private Set<Booking> bookings;
+
 }

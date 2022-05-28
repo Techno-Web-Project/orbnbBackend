@@ -1,5 +1,6 @@
 package orbnb.backend.person;
 
+import orbnb.backend.booking.service.BookingService;
 import orbnb.backend.housing.service.HousingService;
 import orbnb.backend.message.Message;
 import orbnb.backend.message.service.MessageService;
@@ -11,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.PrivateKey;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +32,9 @@ public class PersonController {
 
     @Autowired
     private MessageService messageService;
+
+    @Autowired
+    private BookingService bookingService;
 
 
     @GetMapping("getAllPersons")
@@ -70,5 +75,11 @@ public class PersonController {
     @PutMapping("assignMessageToPerson/{messageId}/{personId}")
     public void assignMessageToPerson(@PathVariable("messageId") Long messageId, @PathVariable("personId") Long personId) {
         this.messageService.assignMessageToPerson(messageId,personId);
+    }
+
+
+    @PutMapping("assignBookingToPerson/{bookingId}/{personId}")
+    public void assignBookingToPerson(@PathVariable("bookingId") Long bookingId, @PathVariable("personId") Long personId) {
+        this.bookingService.assignBookingToPerson(bookingId,personId);
     }
 }
