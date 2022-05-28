@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -56,6 +57,11 @@ public class HousingController {
     @GetMapping("/getHousingById/{housingId}")
     public ResponseEntity<Optional<Housing>> getHousing(@PathVariable("housingId") Long housingId) {
         return new ResponseEntity<>(this.housingService.getHousingById(housingId), HttpStatus.OK);
+    }
+
+    @GetMapping("/isAvailableFromDateToDateByHousingId/{housingId}/{startingDate}/{endingDate}")
+    public ResponseEntity<Boolean> isAvailable(@PathVariable("housingId") Long bookedHousingId, @PathVariable("startingDate") Date startingDate, @PathVariable("endingDate") Date endingDate){
+        return new ResponseEntity<>(this.housingService.isHousingAvailable(bookedHousingId, startingDate, endingDate), HttpStatus.OK);
     }
 
     @PostMapping("/addHousing")

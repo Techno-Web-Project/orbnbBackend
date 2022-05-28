@@ -32,6 +32,9 @@ public class Booking implements Serializable {
     @Column(name = "booking_date_end")
     private Date bookingEndDate;
 
+    @Column(name = "housing_booked_id")
+    private Long housingBookedId;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "booking_status")
     private BookingStatus bookingStatus;

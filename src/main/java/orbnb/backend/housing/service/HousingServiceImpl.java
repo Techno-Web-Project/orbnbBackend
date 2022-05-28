@@ -1,5 +1,6 @@
 package orbnb.backend.housing.service;
 
+import orbnb.backend.booking.BookingRepository;
 import orbnb.backend.housing.Housing;
 
 import orbnb.backend.housing.HousingRepository;
@@ -9,6 +10,7 @@ import orbnb.backend.person.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +22,9 @@ public class HousingServiceImpl implements HousingService {
 
     @Autowired
     private PersonRepository personRepository;
+
+    @Autowired
+    private BookingRepository bookingRepository;
 
     @Override
     public List<Housing> getAllHousings() {
@@ -48,6 +53,12 @@ public class HousingServiceImpl implements HousingService {
         person.getHousingsOwned().add(housing);
         housing.setPersonId(personId);
         this.personRepository.save(person);
+    }
+
+    @Override
+    public boolean isHousingAvailable(Long housingId, Date startingDate, Date endingDate) {
+        List<Long> bookingList = this.bookingRepository.bookingFromDateToDateByHousingId(housingId, startingDate, endingDate);
+        return bookingList.size() == 0;
     }
 
      /*@Override
