@@ -59,4 +59,9 @@ public class BookingServiceImpl implements BookingService{
         booking.setBookingId(idBooking);
         housingRepository.save(housing);
     }
+
+    @Override
+    public Booking updateBooking(Booking booking){
+        return bookingRepository.save(booking);
+    }
 }

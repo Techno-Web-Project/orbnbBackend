@@ -42,4 +42,10 @@ public class BookingController {
         this.bookingService.deleteBooking(bookingId);
     }
 
+    @PutMapping("/updateBooking")
+    @ResponseBody
+    public Booking updateBooking(@RequestBody Booking booking) {
+        return bookingService.updateBooking(booking);
+    }
+
 }

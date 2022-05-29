@@ -20,4 +20,6 @@ public interface BookingService {
     void assignBookingToPerson(Long idBooking, Long idPerson);
 
     void assignBookingToHousing(Long idBooking, Long idHousing);
+
+    Booking updateBooking(Booking booking);
 }
