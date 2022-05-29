@@ -61,9 +61,10 @@ public class HousingServiceImpl implements HousingService {
         return bookingList.size() == 0;
     }
 
-     /*@Override
-   public Housing modifyHousing(Housing housing, Long idHousing){
-        
-    }*/
+     @Override
+     public Housing updateHousing(Housing housing){
+        return this.housingRepository.save(housing);
+     }
+
 
 }

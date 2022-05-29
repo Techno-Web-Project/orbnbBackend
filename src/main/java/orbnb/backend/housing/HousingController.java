@@ -110,4 +110,9 @@ public class HousingController {
         this.housingRateService.AssignHousingRateToHousing(HousingId, HousingrateId);
     }
 
+    @PutMapping("/updateHousing")
+    public Housing updateHousing(@RequestBody Housing housing){
+        return this.housingService.updateHousing(housing);
+    }
+
 }

@@ -20,6 +20,6 @@ public interface HousingService {
 
     boolean isHousingAvailable(Long housingId, Date startingDate, Date endingDate);
 
-   // Housing modifyHousing(Housing housing, Long idHousing);
+    Housing updateHousing(Housing housing);
 
 }
