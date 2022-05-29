@@ -17,5 +17,7 @@ public interface PersonService {
 
     Person getPersonByLogin(String login);
 
+    Person updatePerson(Person person);
+
 
 }

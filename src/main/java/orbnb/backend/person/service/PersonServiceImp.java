@@ -38,4 +38,9 @@ public class PersonServiceImp implements PersonService {
     public Person getPersonByLogin(String login) {
         return this.personRepository.findPersonByLogin(login);
     }
+
+    @Override
+    public Person updatePerson(Person person){
+        return this.personRepository.save(person);
+    }
 }

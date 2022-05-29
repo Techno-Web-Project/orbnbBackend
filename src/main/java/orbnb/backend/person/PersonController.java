@@ -84,4 +84,9 @@ public class PersonController {
     public void assignBookingToPerson(@PathVariable("bookingId") Long bookingId, @PathVariable("personId") Long personId) {
         this.bookingService.assignBookingToPerson(bookingId, personId);
     }
+
+    @PutMapping("/updatePerson")
+    public Person updatePerson(@RequestBody Person person){
+        return this.personService.updatePerson(person);
+    }
 }
