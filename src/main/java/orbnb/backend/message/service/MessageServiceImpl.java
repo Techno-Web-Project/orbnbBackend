@@ -53,4 +53,14 @@ public class MessageServiceImpl implements MessageService {
         personRepository.save(person);
     }
 
+    @Override
+    public List<Message> getMessagesSendByIdSender(Long idSender) {
+        return this.messageRepository.findMessagesByIdSenderOrderByDateDesc(idSender);
+    }
+
+    @Override
+    public List<Message> getMessagesReceivedByIdReceiver(Long idReceiver) {
+        return this.messageRepository.findMessagesByIdReceiverOrderByDateDesc(idReceiver);
+    }
+
 }

@@ -35,6 +35,16 @@ public class MessageController {
         return new ResponseEntity<>(this.messageService.getMessageById(id_message), HttpStatus.OK);
     }
 
+    @GetMapping("/getMessagesByIdSender/{idSender}")
+    public ResponseEntity<List<Message>> getMessagesByIdSender(@PathVariable("idSender") Long idSender){
+        return new ResponseEntity<>(this.messageService.getMessagesSendByIdSender(idSender), HttpStatus.OK);
+    }
+
+    @GetMapping("/getMessagesByIdReceiver/{idReceiver}")
+    public ResponseEntity<List<Message>> getMessagesByIdReceiver(@PathVariable("idReceiver") Long idReceiver){
+        return new ResponseEntity<>(this.messageService.getMessagesReceivedByIdReceiver(idReceiver), HttpStatus.OK);
+    }
+
     @PostMapping("/addMessage")
     @ResponseBody
     public ResponseEntity<Message> addMessage(@RequestBody Message message){

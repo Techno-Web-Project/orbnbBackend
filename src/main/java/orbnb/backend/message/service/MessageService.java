@@ -19,4 +19,8 @@ public interface MessageService {
 
     void assignMessageReceivedToPerson(Long idMessage, Long idPerson);
 
+    List<Message> getMessagesSendByIdSender(Long idSender);
+
+    List<Message> getMessagesReceivedByIdReceiver(Long idReceiver);
+
 }
